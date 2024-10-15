@@ -1,0 +1,59 @@
+---
+import Container from "@components/container.astro";
+import { Picture } from "astro:assets";
+import Huset from "assets/huset.jpg";
+import Huset1 from "assets/huset1.jpg";
+import Torget from "assets/torg.jpg";
+import Stationen from "assets/stationen.jpg";
+
+---
+
+<Container
+<div class="w-full pt-28 grid grid-cols-2 row-span-2 gap-28">
+    <div class="image">
+        <Picture
+        src={Huset}
+        alt="Apartment building from angle"
+        sizes="100vw"
+        loading="eager"
+        format="avif"
+        />
+    </div>
+    <div class="image">
+        <Picture
+        src={Stationen}
+        alt="Apartment building from front"
+        sizes="100vw"
+        loading="eager"
+        format="avif"
+        />
+    </div>
+    <div>
+        <Picture
+        src={Huset1}
+        alt="Apartment building from front"
+        sizes="100vw"
+        loading="eager"
+        format="avif"
+        />
+    </div>
+    <div>
+        <Picture
+        src={Torget}
+        alt="Apartment building from front"
+        sizes="100vw"
+        loading="eager"
+        format="avif"
+        />
+    </div>
+</div>
+/>
+<script>
+    function enlargen(){
+    }
+    document.addEventListener("DOMContentLoaded", ()=>{
+        let items = document.getElementsByClassName("image")
+        console.log(items)
+
+        });
+    </script>
