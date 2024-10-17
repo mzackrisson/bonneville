@@ -1,0 +1,24 @@
+---
+import { getCollection } from "astro:content";
+import { Picture } from "astro:assets";
+import { Image } from "astro:assets";
+
+const startPageInfo = await getCollection("startpageinfo", ({ data }) => {
+  return !data.draft && data.publishDate < new Date();
+});
+---
+
+<section>
+  <div class="flex h-80 flex-wrap gap-20 pt-14">
+    {
+      startPageInfo.map((startPageInfo, index) => (
+        <div class="h-60 w-3/12 border border-black p-6">
+          <h2 class="mt-1 text-3xl font-semibold leading-snug tracking-tight">
+            {startPageInfo.data.title}
+          </h2>
+          <p class="text-black">{startPageInfo.data}</p>
+        </div>
+      ))
+    }
+  </div>
+</section>

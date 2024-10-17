@@ -28,5 +28,17 @@ export default config({
         content: fields.markdoc({ label: "Content" }),
       },
     }),
+    startpage: collection({
+      label: "Startpage",
+      slugField: "title",
+      path: "src/content/startpageinfo/*",
+      format: {
+        contentField: "content",
+      },
+      schema: {
+        title: fields.slug({ name: { label: "Title" } }),
+        content: fields.markdoc({ label: "Content" }),
+      },
+    }),
   },
 });
