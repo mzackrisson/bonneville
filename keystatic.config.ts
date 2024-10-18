@@ -32,12 +32,9 @@ export default config({
       label: "Startpage",
       slugField: "title",
       path: "src/content/startpageinfo/*",
-      format: {
-        contentField: "content",
-      },
       schema: {
         title: fields.slug({ name: { label: "Title" } }),
-        content: fields.markdoc({ label: "Content" }),
+        text: fields.text({ label: "Content", multiline: true }),
       },
     }),
   },

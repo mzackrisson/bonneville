@@ -3,9 +3,7 @@ import { getCollection } from "astro:content";
 import { Picture } from "astro:assets";
 import { Image } from "astro:assets";
 
-const startPageInfo = await getCollection("startpageinfo", ({ data }) => {
-  return !data.draft && data.publishDate < new Date();
-});
+const startPageInfo = await getCollection("startpageinfo");
 ---
 
 <section>
@@ -16,7 +14,7 @@ const startPageInfo = await getCollection("startpageinfo", ({ data }) => {
           <h2 class="mt-1 text-3xl font-semibold leading-snug tracking-tight">
             {startPageInfo.data.title}
           </h2>
-          <p class="text-black">{startPageInfo.data}</p>
+          <p class="text-black">{startPageInfo.data.text}</p>
         </div>
       ))
     }
