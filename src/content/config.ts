@@ -31,10 +31,16 @@ const boardMemberCollection = defineCollection({
   }),
 });
 
-const startPageInfo = defineCollection({
+const startPage = defineCollection({
+  type: "data",
   schema: z.object({
     title: z.string(),
-    text: z.string(),
+    infoblocks: z.array(
+      z.object({
+        title: z.string(),
+        text: z.string(),
+      }),
+    ),
   }),
 });
 
@@ -43,5 +49,5 @@ const startPageInfo = defineCollection({
 export const collections = {
   blog: blogCollection,
   members: boardMemberCollection,
-  startpageinfo: startPageInfo,
+  startpage: startPage,
 };

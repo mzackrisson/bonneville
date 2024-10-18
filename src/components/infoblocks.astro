@@ -1,22 +1,21 @@
 ---
-import { getCollection } from "astro:content";
-import { Picture } from "astro:assets";
-import { Image } from "astro:assets";
+import { getEntry } from "astro:content";
 
-const startPageInfo = await getCollection("startpageinfo");
+// NOTE: Learn if there's a way to handle singleton content collections
+const startPage = await getEntry("pages", "startpage");
+
+const blocks = startPage.data.infoblocks;
 ---
 
-<section>
-  <div class="flex h-80 flex-wrap gap-20 pt-14">
-    {
-      startPageInfo.map((startPageInfo, index) => (
-        <div class="h-60 w-3/12 border border-black p-6">
-          <h2 class="mt-1 text-3xl font-semibold leading-snug tracking-tight">
-            {startPageInfo.data.title}
-          </h2>
-          <p class="text-black">{startPageInfo.data.text}</p>
-        </div>
-      ))
-    }
-  </div>
+<section class="flex h-80 flex-wrap gap-20 pt-14">
+  {
+    blocks.map(({ title, text }) => (
+      <div class="h-60 w-3/12 border border-black p-6">
+        <h2 class="mt-1 text-3xl font-semibold leading-snug tracking-tight">
+          {title}
+        </h2>
+        <p class="text-black">{text}</p>
+      </div>
+    ))
+  }
 </section>

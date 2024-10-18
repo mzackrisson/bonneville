@@ -1,4 +1,4 @@
-import { config, fields, collection } from "@keystatic/core";
+import { config, fields, collection, singleton } from "@keystatic/core";
 export default config({
   storage: {
     kind: "local",
@@ -28,13 +28,34 @@ export default config({
         content: fields.markdoc({ label: "Content" }),
       },
     }),
-    startpage: collection({
-      label: "Startpage",
+
+    pages: collection({
+      label: "Pages",
+      path: "src/content/pages/*",
       slugField: "title",
-      path: "src/content/startpageinfo/*",
+      format: {
+        data: "yaml",
+        // IDEA: Maybe change to mdoc file format (with a content field) to allow rich text content for each page without requiring us to define bl
+        // contentField: 'content'
+      },
       schema: {
+        // IDEA: Add all custom data for start page
+        // heroImg
+        // intro text
         title: fields.slug({ name: { label: "Title" } }),
-        text: fields.text({ label: "Content", multiline: true }),
+        infoblocks: fields.array(
+          fields.object(
+            {
+              title: fields.text({ label: "Title" }),
+              text: fields.text({
+                label: "Content",
+                multiline: true,
+                validation: { isRequired: true, length: { min: 1, max: 300 } },
+              }),
+            },
+            { label: "Info blocks" },
+          ),
+        ),
       },
     }),
   },
