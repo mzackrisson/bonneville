@@ -3,6 +3,12 @@ export default config({
   storage: {
     kind: "local",
   },
+  ui: {
+    navigation: {
+      styrelsen: ["members"],
+      sidor: ["pages"],
+    },
+  },
   collections: {
     posts: collection({
       label: "Posts",
@@ -35,7 +41,8 @@ export default config({
       slugField: "title",
       format: {
         data: "yaml",
-        // IDEA: Maybe change to mdoc file format (with a content field) to allow rich text content for each page without requiring us to define bl
+        // IDEA: Maybe change to mdoc file format (with a content field) to allow rich text content
+        // for each page without requiring us to define blocks
         // contentField: 'content'
       },
       schema: {
