@@ -1,13 +1,14 @@
-title: Startpage
+title: startpage
 infoblocks:
-  - title: Boende
-    text: ghejehjhe
-    buttontext: klicka mig ;)
-  - title: Föreninbgen
-    text: |+
-      hajfjhsf
-
-    buttontext: klicka mig
-  - title: Enagagfgrf
-    text: jiwopkjpger
-    buttontext: klicka mig!!
+  - title: VIktig titel
+    text: Viktig information
+    buttontext: Viktig knapp
+    url: /viktig-info
+  - title: En til viktig titel
+    text: Oj så viktigt detta är
+    buttontext: "Klicka mig då "
+    url: /annan-sida
+  - title: "Viktigaste "
+    text: infon
+    buttontext: klicka
+    url: /annan-sida

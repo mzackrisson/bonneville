@@ -9,15 +9,17 @@ const blocks = startPage.data.infoblocks;
 
 <section class="flex h-80 flex-wrap justify-center gap-16 pt-14">
   {
-    blocks.map(({ title, text, buttontext }) => (
+    blocks.map(({ title, text, buttontext, linktopage }) => (
       <div class="h-full w-full lg:h-60 lg:w-96">
         <h2 class="mt-1p-6 text-3xl font-semibold leading-snug tracking-tight">
           {title}
         </h2>
         <p class="p-6 text-black">{text}</p>
-        <button class="m-16 h-10 w-40 rounded-md bg-gray-100">
-          <p class="text-black">{buttontext}</p>
-        </button>
+        <a
+          class="m-16 h-10 w-40 rounded-md bg-gray-100 text-black"
+          href={linktopage}>
+          {buttontext}
+        </a>
       </div>
     ))
   }

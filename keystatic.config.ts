@@ -59,6 +59,8 @@ export default config({
                 multiline: true,
                 validation: { isRequired: true, length: { min: 1, max: 300 } },
               }),
+              buttontext: fields.text({ label: "button text" }),
+              url: fields.url({ label: "path to page here" }),
             },
             { label: "Info blocks" },
           ),

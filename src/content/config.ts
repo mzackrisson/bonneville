@@ -34,12 +34,12 @@ const boardMemberCollection = defineCollection({
 const startPage = defineCollection({
   type: "content",
   schema: z.object({
-    title: z.string(),
     infoblocks: z.array(
       z.object({
         title: z.string(),
         text: z.string(),
         buttontext: z.string(),
+        url: z.string(),
       }),
     ),
   }),
