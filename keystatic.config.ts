@@ -23,15 +23,21 @@ export default config({
       },
     }),
     members: collection({
-      label: "Members",
-      slugField: "title",
+      label: "Styrelsemedlemmar",
+      slugField: "name",
       path: "src/content/members/*",
       format: {
-        contentField: "content",
+        data: "yaml",
       },
       schema: {
-        title: fields.slug({ name: { label: "Title" } }),
-        content: fields.markdoc({ label: "Content" }),
+        name: fields.slug({ name: { label: "Namn" } }),
+        title: fields.text({ label: "Titel" }),
+        image: fields.image({
+          label: "Bild",
+          directory: "src/assets/images/people",
+          publicPath: "/src/assets/images/people/",
+        }),
+        description: fields.text({ label: "Beskrivning", multiline: true }),
       },
     }),
 
