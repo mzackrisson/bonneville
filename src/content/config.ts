@@ -42,10 +42,19 @@ const startPage = defineCollection({
   }),
 });
 
+const titleAndTextCollection = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    text: z.string(),
+  }),
+});
+
 // 3. Export a single `collections` object to register your collection(s)
 //    This key should match your collection directory name in "src/content"
 export const collections = {
   blog: blogCollection,
   members: boardMemberCollection,
   startpage: startPage,
+  styrelsen: titleAndTextCollection,
 };

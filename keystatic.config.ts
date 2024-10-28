@@ -5,7 +5,7 @@ export default config({
   },
   ui: {
     navigation: {
-      styrelsen: ["members"],
+      styrelsen: ["members", "styrelsen"],
       sidor: ["pages"],
     },
   },
@@ -20,6 +20,18 @@ export default config({
       schema: {
         title: fields.slug({ name: { label: "Title" } }),
         content: fields.markdoc({ label: "Content" }),
+      },
+    }),
+    styrelsen: collection({
+      label: "Title",
+      path: "src/content/styrelsen/*",
+      slugField: "title",
+      format: {
+        data: "yaml",
+      },
+      schema: {
+        title: fields.text({ label: "Titel" }),
+        text: fields.text({ label: "Text", multiline: true }),
       },
     }),
     members: collection({
@@ -40,7 +52,6 @@ export default config({
         description: fields.text({ label: "Beskrivning", multiline: true }),
       },
     }),
-
     pages: collection({
       label: "Pages",
       path: "src/content/pages/*",
