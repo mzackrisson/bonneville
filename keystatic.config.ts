@@ -85,4 +85,31 @@ export default config({
       },
     }),
   },
+  singletons: {
+    omstyrelse: singleton({
+      label: "Om styrelsen",
+      path: "src/content/pages/*",
+      schema: {
+        // IDEA: Add all custom data for start page
+        // heroImg
+        // intro text
+        title: fields.slug({ name: { label: "Title" } }),
+        infoblocks: fields.array(
+          fields.object(
+            {
+              title: fields.text({ label: "Title" }),
+              text: fields.text({
+                label: "Content",
+                multiline: true,
+                validation: { isRequired: true, length: { min: 1, max: 300 } },
+              }),
+              buttontext: fields.text({ label: "button text" }),
+              url: fields.url({ label: "path to page here" }),
+            },
+            { label: "Info blocks" },
+          ),
+        ),
+      },
+    }),
+  },
 });
