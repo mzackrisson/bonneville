@@ -1,18 +1,18 @@
 ---
 import { getCollection } from "astro:content";
 
-const styrelsen = await getCollection("styrelsen");
+const titleandtext = await getCollection("titleandtext");
 ---
 
-<section class="flex h-80 flex-wrap justify-center gap-16 pt-14">
+<section class="flex h-80 flex-wrap justify-center gap-16 bg-red-500 pt-14">
   {
-    styrelsen.map((styrelsen) => (
-      <div class="h-full w-full lg:h-60 lg:w-96">
+    titleandtext.map((titleandtext) => (
         <h2 class="mt-1p-6 text-3xl font-semibold leading-snug tracking-tight">
-          {styrelsen.data.title}
+          {titleandtext.data.title}
         </h2>
-        <p class="p-6 text-black">{styrelsen.data.text}</p>
-      </div>
+        <h2 class="mt-1p-6 text-3xl font-semibold leading-snug tracking-tight">
+          {titleandtext.data.text}
+        </h2>
     ))
   }
 </section>

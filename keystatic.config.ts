@@ -5,33 +5,24 @@ export default config({
   },
   ui: {
     navigation: {
-      styrelsen: ["members", "styrelsen"],
-      sidor: ["pages"],
+      components: ["members", "titleandtext", "infoblocks"],
+      sidor: ["omforeningenpage", "startpage"],
     },
   },
+
+  //problem med titleandtext (och infoblocks tror jag), titel skapas inte i yaml filen som heter fdghs.yaml.
+  //minns att vi hade liknande problem förut och att det hade att göra med path. Blir dock inte klokare.
   collections: {
-    posts: collection({
-      label: "Posts",
-      slugField: "title",
-      path: "src/content/posts/*",
-      format: {
-        contentField: "content",
-      },
-      schema: {
-        title: fields.slug({ name: { label: "Title" } }),
-        content: fields.markdoc({ label: "Content" }),
-      },
-    }),
-    styrelsen: collection({
-      label: "Title",
-      path: "src/content/styrelsen/*",
+    titleandtext: collection({
+      label: "Title and text",
+      path: "src/content/titleandtext/*",
       slugField: "title",
       format: {
         data: "yaml",
       },
       schema: {
         title: fields.text({ label: "Titel" }),
-        text: fields.text({ label: "Text", multiline: true }),
+        text: fields.text({ label: "Text" }),
       },
     }),
     members: collection({
@@ -52,63 +43,52 @@ export default config({
         description: fields.text({ label: "Beskrivning", multiline: true }),
       },
     }),
-    pages: collection({
-      label: "Pages",
-      path: "src/content/pages/*",
+    infoblocks: collection({
+      label: "Infoblocks",
+      path: "src/content/infoblocks/*",
       slugField: "title",
       format: {
         data: "yaml",
-        // IDEA: Maybe change to mdoc file format (with a content field) to allow rich text content
-        // for each page without requiring us to define blocks
-        // contentField: 'content'
       },
       schema: {
-        // IDEA: Add all custom data for start page
-        // heroImg
-        // intro text
-        title: fields.slug({ name: { label: "Title" } }),
-        infoblocks: fields.array(
-          fields.object(
-            {
-              title: fields.text({ label: "Title" }),
-              text: fields.text({
-                label: "Content",
-                multiline: true,
-                validation: { isRequired: true, length: { min: 1, max: 300 } },
-              }),
-              buttontext: fields.text({ label: "button text" }),
-              url: fields.url({ label: "path to page here" }),
-            },
-            { label: "Info blocks" },
-          ),
-        ),
+        title: fields.text({ label: "Title" }),
+        text: fields.text({
+          label: "Text",
+          validation: { isRequired: true, length: { min: 1, max: 300 } },
+        }),
+        buttontext: fields.text({ label: "button text" }),
+        url: fields.url({ label: "path to page here" }),
       },
     }),
   },
+
   singletons: {
-    omstyrelse: singleton({
-      label: "Om styrelsen",
-      path: "src/content/pages/*",
+    omforeningenpage: singleton({
+      label: "Om föreningen",
+      path: "src/content/omsforeningenpage/",
       schema: {
-        // IDEA: Add all custom data for start page
-        // heroImg
-        // intro text
-        title: fields.slug({ name: { label: "Title" } }),
-        infoblocks: fields.array(
-          fields.object(
-            {
-              title: fields.text({ label: "Title" }),
-              text: fields.text({
-                label: "Content",
-                multiline: true,
-                validation: { isRequired: true, length: { min: 1, max: 300 } },
-              }),
-              buttontext: fields.text({ label: "button text" }),
-              url: fields.url({ label: "path to page here" }),
-            },
-            { label: "Info blocks" },
-          ),
-        ),
+        // name: fields.slug({ name: { label: "Namn" } }),
+        // title: fields.text({ label: "Titel" }),
+        // image: fields.image({
+        //   label: "Bild",
+        //   directory: "src/assets/images/people",
+        //   publicPath: "/src/assets/images/people/",
+        // }),
+        // description: fields.text({ label: "Beskrivning", multiline: true }),
+      },
+    }),
+    startpage: singleton({
+      label: "Startsida",
+      path: "src/content/startpage/",
+      schema: {
+        // name: fields.slug({ name: { label: "Namn" } }),
+        // title: fields.text({ label: "Titel" }),
+        // image: fields.image({
+        //   label: "Bild",
+        //   directory: "src/assets/images/people",
+        //   publicPath: "/src/assets/images/people/",
+        // }),
+        // description: fields.text({ label: "Beskrivning", multiline: true }),
       },
     }),
   },
