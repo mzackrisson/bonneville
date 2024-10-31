@@ -9,9 +9,6 @@ export default config({
       sidor: ["omforeningenpage", "startpage"],
     },
   },
-
-  //problem med titleandtext (och infoblocks tror jag), titel skapas inte i yaml filen som heter fdghs.yaml.
-  //minns att vi hade liknande problem förut och att det hade att göra med path. Blir dock inte klokare.
   collections: {
     titleandtext: collection({
       label: "Title and text",
@@ -21,7 +18,8 @@ export default config({
         data: "yaml",
       },
       schema: {
-        title: fields.text({ label: "Titel" }),
+        title: fields.slug({ name: { label: "Titel" } }),
+        // test: fields.slug({ name: { label: "Test" } }),
         text: fields.text({ label: "Text" }),
       },
     }),
@@ -80,15 +78,21 @@ export default config({
     startpage: singleton({
       label: "Startsida",
       path: "src/content/startpage/",
+      format: {
+        data: "yaml",
+      },
       schema: {
-        // name: fields.slug({ name: { label: "Namn" } }),
-        // title: fields.text({ label: "Titel" }),
-        // image: fields.image({
-        //   label: "Bild",
-        //   directory: "src/assets/images/people",
-        //   publicPath: "/src/assets/images/people/",
-        // }),
-        // description: fields.text({ label: "Beskrivning", multiline: true }),
+        infoblock: fields.array(
+          fields.object({
+            title: fields.slug({ name: { label: "Infoblock" } }),
+            text: fields.text({
+              label: "Text",
+              validation: { isRequired: true, length: { min: 1, max: 300 } },
+            }),
+            buttontext: fields.text({ label: "button text" }),
+            url: fields.url({ label: "path to page here" }),
+          }),
+        ),
       },
     }),
   },

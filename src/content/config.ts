@@ -14,9 +14,10 @@ const boardMemberCollection = defineCollection({
 });
 
 const titleAndTextCollection = defineCollection({
-  type: "content",
+  type: "data",
   schema: z.object({
     title: z.string(),
+    // test: z.string(),
     text: z.string(),
   }),
 });
@@ -32,12 +33,27 @@ const infoBlockCollection = defineCollection({
 });
 
 //Pages
+// const startPageCollection = defineCollection({
+//   type: "content",
+//   schema: z.object({
+//     title: z.string(),
+//   }),
+// });
+
+//Pages
+
+//startpage singleton + infoblocks wip
 const startPageCollection = defineCollection({
-  type: "content",
-  schema: z.object({
+  type: "data",
+  schema: {
+    infoblock: z.string(),
     title: z.string(),
-  }),
+    text: z.string(),
+    buttontext: z.string(),
+    url: z.string(),
+  },
 });
+
 const omForeningenCollection = defineCollection({
   type: "content",
   schema: z.object({
@@ -50,7 +66,7 @@ const omForeningenCollection = defineCollection({
 export const collections = {
   members: boardMemberCollection,
   titleandtext: titleAndTextCollection,
-  infoblocks: infoBlockCollection,
+  // infoblocks: infoBlockCollection,
   startpage: startPageCollection,
   omforeningenpage: omForeningenCollection,
 };

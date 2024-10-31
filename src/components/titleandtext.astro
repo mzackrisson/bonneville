@@ -4,13 +4,13 @@ import { getCollection } from "astro:content";
 const titleandtext = await getCollection("titleandtext");
 ---
 
-<section class="flex h-80 flex-wrap justify-center gap-16 bg-red-500 pt-14">
+<section class="flex flex-col justify-center mt-10  mb-10 mx-auto gap-16 border border-black max-w-6xl pt-14">
   {
     titleandtext.map((titleandtext) => (
-        <h2 class="mt-1p-6 text-3xl font-semibold leading-snug tracking-tight">
+        <h2 class="mt-1p-6 mx-10 text-3xl h-full font-semibold leading-snug tracking-tight">
           {titleandtext.data.title}
         </h2>
-        <h2 class="mt-1p-6 text-3xl font-semibold leading-snug tracking-tight">
+        <h2 class="mt-1p-6 mx-10 h-full mb-12 text-xl leading-snug tracking-tight">
           {titleandtext.data.text}
         </h2>
     ))
