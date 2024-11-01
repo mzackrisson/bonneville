@@ -1,25 +1,21 @@
 ---
 import { getCollection, getEntry } from "astro:content";
 
-const startpage = await getCollection("startpage");
-
-const infoBlock = await getEntry("startpage", "infoblock");
+const startpage = await getEntry("startpage", "index");
 
 // NOTE: Learn if there's a way to handle singleton content collections
 ---
 
 <section class="flex h-80 flex-wrap justify-center gap-16 pt-14">
   {
-    startpage.map((startpage) => (
+    startpage.data.infoblock.map(({ buttontext, title, url, text }) => (
       <div class="h-full w-full lg:h-60 lg:w-96">
         <h2 class="mt-1p-6 text-3xl font-semibold leading-snug tracking-tight">
-          {startpage.data.title}
+          {title}
         </h2>
-        <p class="p-6 text-black">{startpage.data.text}</p>
-        <a
-          class="m-16 h-10 w-40 rounded-md bg-gray-100 text-black"
-          href={startpage.data.url}>
-          {startpage.data.buttontext}
+        <p class="p-6 text-black">{text}</p>
+        <a class="m-16 h-10 w-40 rounded-md bg-gray-100 text-black" href={url}>
+          {buttontext}
         </a>
       </div>
     ))

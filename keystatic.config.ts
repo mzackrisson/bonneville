@@ -82,9 +82,10 @@ export default config({
         data: "yaml",
       },
       schema: {
+        title: fields.text({ label: "Titel" }),
         infoblock: fields.array(
           fields.object({
-            title: fields.slug({ name: { label: "Infoblock" } }),
+            title: fields.text({ label: "Infoblock" }),
             text: fields.text({
               label: "Text",
               validation: { isRequired: true, length: { min: 1, max: 300 } },

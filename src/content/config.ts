@@ -45,13 +45,17 @@ const infoBlockCollection = defineCollection({
 //startpage singleton + infoblocks wip
 const startPageCollection = defineCollection({
   type: "data",
-  schema: {
-    infoblock: z.string(),
+  schema: z.object({
     title: z.string(),
-    text: z.string(),
-    buttontext: z.string(),
-    url: z.string(),
-  },
+    infoblock: z.array(
+      z.object({
+        title: z.string(),
+        text: z.string(),
+        buttontext: z.string(),
+        url: z.string(),
+      }),
+    ),
+  }),
 });
 
 const omForeningenCollection = defineCollection({
