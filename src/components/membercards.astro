@@ -11,9 +11,6 @@ const members = await getCollection("members");
   <div
     class="mx-auto flex w-full flex-wrap justify-center gap-10 pt-14 xl:max-w-6xl xl:justify-start">
     {
-      // [members, members, members, members]
-      //   .flat()
-
       members.map(async ({ data: { name, title, image, description } }) => {
         const img = (await import(image)).default as ImageMetadata;
         return (

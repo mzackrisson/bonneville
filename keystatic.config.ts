@@ -5,7 +5,7 @@ export default config({
   },
   ui: {
     navigation: {
-      components: ["members", "titleandtext", "infoblocks"],
+      components: ["members", "titleandtext"],
       sidor: ["omforeningenpage", "startpage"],
     },
   },
@@ -19,7 +19,6 @@ export default config({
       },
       schema: {
         title: fields.slug({ name: { label: "Titel" } }),
-        // test: fields.slug({ name: { label: "Test" } }),
         text: fields.text({ label: "Text" }),
       },
     }),
@@ -39,23 +38,6 @@ export default config({
           publicPath: "/src/assets/images/people/",
         }),
         description: fields.text({ label: "Beskrivning", multiline: true }),
-      },
-    }),
-    infoblocks: collection({
-      label: "Infoblocks",
-      path: "src/content/infoblocks/*",
-      slugField: "title",
-      format: {
-        data: "yaml",
-      },
-      schema: {
-        title: fields.text({ label: "Title" }),
-        text: fields.text({
-          label: "Text",
-          validation: { isRequired: true, length: { min: 1, max: 300 } },
-        }),
-        buttontext: fields.text({ label: "button text" }),
-        url: fields.url({ label: "path to page here" }),
       },
     }),
   },

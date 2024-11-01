@@ -2,7 +2,8 @@
 import { z, defineCollection } from "astro:content";
 
 // 2. Define your collection(s)
-// Components
+
+// components (reusable structures)
 const boardMemberCollection = defineCollection({
   type: "data",
   schema: z.object({
@@ -17,32 +18,11 @@ const titleAndTextCollection = defineCollection({
   type: "data",
   schema: z.object({
     title: z.string(),
-    // test: z.string(),
     text: z.string(),
   }),
 });
 
-const infoBlockCollection = defineCollection({
-  type: "content",
-  schema: z.object({
-    title: z.string(),
-    text: z.string(),
-    buttontext: z.string(),
-    url: z.string(),
-  }),
-});
-
-//Pages
-// const startPageCollection = defineCollection({
-//   type: "content",
-//   schema: z.object({
-//     title: z.string(),
-//   }),
-// });
-
-//Pages
-
-//startpage singleton + infoblocks wip
+//pages
 const startPageCollection = defineCollection({
   type: "data",
   schema: z.object({
@@ -70,7 +50,6 @@ const omForeningenCollection = defineCollection({
 export const collections = {
   members: boardMemberCollection,
   titleandtext: titleAndTextCollection,
-  // infoblocks: infoBlockCollection,
   startpage: startPageCollection,
   omforeningenpage: omForeningenCollection,
 };
