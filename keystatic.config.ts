@@ -1,3 +1,4 @@
+import Titleandtext from "@components/titleandtext.astro";
 import { config, fields, collection, singleton } from "@keystatic/core";
 export default config({
   storage: {
@@ -5,56 +6,101 @@ export default config({
   },
   ui: {
     navigation: {
-      components: ["members", "titleandtext"],
       sidor: ["omforeningenpage", "startpage"],
     },
   },
   collections: {
-    titleandtext: collection({
-      label: "Title and text",
-      path: "src/content/titleandtext/*",
+    boendepage: collection({
+      label: "Sidor",
+      path: "content/boendepage/**",
       slugField: "title",
-      format: {
-        data: "yaml",
-      },
+      format: { contentField: "content" },
+      entryLayout: "content",
       schema: {
-        title: fields.slug({ name: { label: "Titel" } }),
-        text: fields.text({ label: "Text" }),
-      },
-    }),
-    members: collection({
-      label: "Styrelsemedlemmar",
-      slugField: "name",
-      path: "src/content/members/*",
-      format: {
-        data: "yaml",
-      },
-      schema: {
-        name: fields.slug({ name: { label: "Namn" } }),
-        title: fields.text({ label: "Titel" }),
-        image: fields.image({
-          label: "Bild",
-          directory: "src/assets/images/people",
-          publicPath: "/src/assets/images/people/",
+        title: fields.slug({
+          name: { label: "Title", validation: { isRequired: true } },
         }),
-        description: fields.text({ label: "Beskrivning", multiline: true }),
+        description: fields.text({
+          label: "Description",
+          validation: { isRequired: true },
+        }),
+        content: fields.markdoc({
+          label: "Content",
+          extension: "md",
+          options: {
+            heading: {
+              levels: [1, 2, 3, 4],
+              schema: {
+                id: fields.text({ label: "ID" }),
+              },
+            },
+          },
+        }),
       },
     }),
-  },
+    // titleandtext: collection({
+    //   label: "Title and text",
+    //   path: "src/content/titleandtext/*",
+    //   slugField: "title",
+    //   format: {
+    //     data: "yaml",
+    //   },
+    //   schema: {
+    //     title: fields.slug({ name: { label: "Titel" } }),
+    //     text: fields.text({ label: "Text" }),
+    //   },
+    // }),
 
+    //   members: collection({
+    //     label: "Styrelsemedlemmar",
+    //     slugField: "name",
+    //     path: "src/content/members/*",
+    //     format: {
+    //       data: "yaml",
+    //     },
+    //     schema: {
+    //       name: fields.slug({ name: { label: "Namn" } }),
+    //       title: fields.text({ label: "Titel" }),
+    //       image: fields.image({
+    //         label: "Bild",
+    //         directory: "src/assets/images/people",
+    //         publicPath: "/src/assets/images/people/",
+    //       }),
+    //       description: fields.text({ label: "Beskrivning", multiline: true }),
+    //     },
+    //   }),
+    // },
+  },
   singletons: {
     omforeningenpage: singleton({
       label: "Om föreningen",
-      path: "src/content/omsforeningenpage/",
+      path: "src/content/omforeningenpage/",
+      format: {
+        data: "yaml",
+      },
       schema: {
-        // name: fields.slug({ name: { label: "Namn" } }),
-        // title: fields.text({ label: "Titel" }),
-        // image: fields.image({
-        //   label: "Bild",
-        //   directory: "src/assets/images/people",
-        //   publicPath: "/src/assets/images/people/",
-        // }),
-        // description: fields.text({ label: "Beskrivning", multiline: true }),
+        title: fields.text({ label: "title" }),
+        titleandtext: fields.array(
+          fields.object({
+            title: fields.text({ label: "Titel" }),
+            text: fields.text({ label: "Text" }),
+          }),
+        ),
+        members: fields.array(
+          fields.object({
+            name: fields.text({ label: "Namn" }),
+            title: fields.text({ label: "Titel" }),
+            image: fields.image({
+              label: "Bild",
+              directory: "src/assets/images/people",
+              publicPath: "/src/assets/images/people/",
+            }),
+            description: fields.text({
+              label: "Beskrivning",
+              multiline: true,
+            }),
+          }),
+        ),
       },
     }),
     startpage: singleton({

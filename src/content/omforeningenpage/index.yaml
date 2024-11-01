@@ -1,0 +1,9 @@
+title: test
+titleandtext:
+  - title: test
+    text: test
+members:
+  - name: test
+    title: test
+    image: /src/assets/images/people/members/0/image.jpg
+    description: test

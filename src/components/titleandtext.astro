@@ -1,17 +1,18 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
 
-const titleandtext = await getCollection("titleandtext");
+// const titleandtext = await getCollection("titleandtext");
+const omforeningen = await getEntry("omforeningenpage", "index");
 ---
 
 <section class="flex flex-col justify-center mt-10  mb-10 mx-auto gap-16 border border-black max-w-6xl pt-14">
   {
-    titleandtext.map((titleandtext) => (
+    omforeningen.data.titleandtext.map(({ title, text }) => (
         <h2 class="mt-1p-6 mx-10 text-3xl h-full font-semibold leading-snug tracking-tight">
-          {titleandtext.data.title}
+          {title}
         </h2>
         <h2 class="mt-1p-6 mx-10 h-full mb-12 text-xl leading-snug tracking-tight">
-          {titleandtext.data.text}
+          {text}
         </h2>
     ))
   }
