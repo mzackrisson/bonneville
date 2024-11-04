@@ -1,18 +1,18 @@
 ---
-import { getCollection, getEntry } from "astro:content";
+import { getEntry } from "astro:content";
 
 const startpage = await getEntry("startpage", "index");
 ---
 
-<section class="flex h-80 flex-wrap justify-center gap-16 pt-14">
+<section class="flex h-full flex-wrap justify-center gap-16">
   {
     startpage.data.infoblock.map(({ buttontext, title, url, text }) => (
-      <div class="h-full w-full lg:h-60 lg:w-96">
-        <h2 class="mt-1p-6 text-3xl font-semibold leading-snug tracking-tight">
+      <div class="mt-12 flex h-full w-full flex-col items-center justify-center lg:h-full lg:w-96">
+        <h2 class="p-4 text-3xl font-semibold leading-snug tracking-tight">
           {title}
         </h2>
-        <p class="p-6 text-black">{text}</p>
-        <a class="m-16 h-10 w-40 rounded-md bg-gray-100 text-black" href={url}>
+        <p class="m-4 p-4 text-black">{text}</p>
+        <a class="m-8 rounded-md bg-gray-100 p-6 text-black" href={url}>
           {buttontext}
         </a>
       </div>

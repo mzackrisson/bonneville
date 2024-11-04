@@ -1,14 +1,20 @@
 title: test
+heroimage:
+  - title: Välkommen till BRF Bonneville
+    text: >-
+      En föreningen bestående av 45 lägenheter uppdelade på två nybyggda hus i
+      stadsdelen Vega utanför Stockholm
+    image: /src/assets/images/building/heroimage/0/image.webp
 infoblock:
-  - title: test
-    text: test
-    buttontext: test
-    url: test
-  - title: test
-    text: test
-    buttontext: test
-    url: test
-  - title: test
-    text: test
-    buttontext: test
-    url: test
+  - title: Boendesidor
+    text: Läs om gemensamma lokaler
+    buttontext: Mer info för boende
+    url: /boende
+  - title: Föreningen
+    text: Läs om föreningens styrelse och ta del av stadgar och årsredovisningar
+    buttontext: Läs mer
+    url: /omforeningen
+  - title: Engagera dig
+    text: Engagera dig i vår förening
+    buttontext: Mer info här
+    url: /404

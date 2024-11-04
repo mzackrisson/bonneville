@@ -111,6 +111,17 @@ export default config({
       },
       schema: {
         title: fields.text({ label: "Titel" }),
+        heroimage: fields.array(
+          fields.object({
+            title: fields.text({ label: "Title" }),
+            text: fields.text({ label: "Text" }),
+            image: fields.image({
+              label: "Bild",
+              directory: "src/assets/images/building",
+              publicPath: "/src/assets/images/building/",
+            }),
+          }),
+        ),
         infoblock: fields.array(
           fields.object({
             title: fields.text({ label: "Infoblock" }),

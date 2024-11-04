@@ -36,6 +36,13 @@ const startPageCollection = defineCollection({
   type: "data",
   schema: z.object({
     title: z.string(),
+    heroimage: z.array(
+      z.object({
+        title: z.string(),
+        text: z.string(),
+        image: z.string(),
+      }),
+    ),
     infoblock: z.array(
       z.object({
         title: z.string(),
