@@ -1,0 +1,7 @@
+---
+title: Boende
+---
+
+Hello
+
+Goodbye

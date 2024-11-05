@@ -6,24 +6,24 @@ export default config({
   },
   ui: {
     navigation: {
-      sidor: ["omforeningenpage", "startpage"],
+      sidor: ["omforeningenpage", "startpage", "pages"],
     },
   },
   collections: {
-    boendepage: collection({
+    pages: collection({
       label: "Sidor",
-      path: "content/boendepage/**",
+      path: "src/content/pages/**",
       slugField: "title",
       format: { contentField: "content" },
       entryLayout: "content",
       schema: {
         title: fields.slug({
-          name: { label: "Title", validation: { isRequired: true } },
+          name: { label: "Namn på sida", validation: { isRequired: true } },
         }),
-        description: fields.text({
-          label: "Description",
-          validation: { isRequired: true },
-        }),
+        // description: fields.text({
+        //   label: "Description",
+        //   validation: { isRequired: true },
+        //}),
         content: fields.markdoc({
           label: "Content",
           extension: "md",

@@ -5,11 +5,11 @@ import { z, defineCollection } from "astro:content";
 
 // components (reusable structures)
 
-const boendeCollection = defineCollection({
+const pagesCollection = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string(),
-    description: z.string(),
+    // description: z.string(),
   }),
 });
 
@@ -83,5 +83,5 @@ export const collections = {
   // titleandtext: titleAndTextCollection,
   startpage: startPageCollection,
   omforeningenpage: omForeningenCollection,
-  boendepage: boendeCollection,
+  pages: pagesCollection,
 };
