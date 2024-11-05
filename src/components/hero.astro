@@ -17,13 +17,19 @@ const startpage = await getEntry("startpage", "index");
       return (
         <div class="relative flex w-full flex-col">
           <Image
-            class="h-96 w-full object-cover"
+            class="w-full object-cover md:h-96"
             src={img}
             alt={`Bild på ${title}`}
           />
           <div class="absolute top-0 flex h-full w-full flex-col items-center justify-center bg-gray-400 bg-opacity-50 text-3xl xl:top-0">
-            <h2 class="mx-10 my-10 font-semibold xl:text-7xl"> {title} </h2>
-            <p class="xl:display mx-10 my-10 hidden text-3xl"> {text} </p>
+            <h2 class="mx-10 my-10 text-center text-5xl font-semibold md:text-7xl">
+              {" "}
+              {title}{" "}
+            </h2>
+            <p class="mx-10 my-10 hidden w-2/3 text-center text-3xl lg:block">
+              {" "}
+              {text}{" "}
+            </p>
           </div>
         </div>
       );
