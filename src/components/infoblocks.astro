@@ -12,7 +12,9 @@ const startpage = await getEntry("startpage", "index");
           {title}
         </h2>
         <p class="m-4 p-4 text-black">{text}</p>
-        <a class="m-8 rounded-md bg-gray-100 p-6 text-black" href={url}>
+        <a
+          class="m-8 rounded-md bg-gray-100 p-6 text-black hover:bg-gray-700"
+          href={url}>
           {buttontext}
         </a>
       </div>

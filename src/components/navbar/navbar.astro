@@ -39,7 +39,9 @@ const menuitems = [
     <Astronav>
       <div class="flex w-full items-center justify-between lg:w-auto">
         <a href="/" class="text-lg"
-          ><span class="font-bold text-slate-800">LOGGA</span>
+          ><span class="font-bold text-slate-900 hover:text-gray-600"
+            >LOGGA</span
+          >
         </a>
         <div class="block lg:hidden">
           <MenuIcon class="h-4 w-4 text-gray-800" />
@@ -62,7 +64,7 @@ const menuitems = [
                   <li>
                     <a
                       href={item.path}
-                      class="flex items-center py-2 text-gray-600 hover:text-gray-900 lg:px-3">
+                      class="flex items-center py-2 text-gray-500 hover:text-gray-900 lg:px-3">
                       <span> {item.title}</span>
                       {item.badge && (
                         <span class="ml-1 animate-pulse rounded-full bg-indigo-600 px-2 py-0.5 text-[10px] font-semibold uppercase text-white">
