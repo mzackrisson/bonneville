@@ -1,4 +1,3 @@
-import Titleandtext from "@components/titleandtext.astro";
 import { config, fields, collection, singleton } from "@keystatic/core";
 export default config({
   storage: {
@@ -12,7 +11,7 @@ export default config({
   collections: {
     pages: collection({
       label: "Sidor",
-      path: "src/content/pages/**",
+      path: "src/content/pages/*",
       slugField: "title",
       format: { contentField: "content" },
       entryLayout: "content",
@@ -20,14 +19,14 @@ export default config({
         title: fields.slug({
           name: { label: "Namn på sida", validation: { isRequired: true } },
         }),
-        // description: fields.text({
-        //   label: "Description",
-        //   validation: { isRequired: true },
-        //}),
         content: fields.markdoc({
           label: "Content",
           extension: "md",
           options: {
+            image: {
+              publicPath: "/assets/",
+              directory: "public/assets/",
+            },
             heading: {
               levels: [1, 2, 3, 4],
               schema: {

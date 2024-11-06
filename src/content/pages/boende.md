@@ -1,7 +1,4 @@
 ---
-title: Boende
+title: boende
 ---
-
-Hello
-
-Goodbye
+Här hittar du information om gemensamma lokaler osv
