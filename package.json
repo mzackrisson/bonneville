@@ -25,7 +25,6 @@
     "@iconify-json/uil": "^1.1.8",
     "@keystatic/astro": "^5.0.1",
     "@keystatic/core": "^0.5.37",
-    "@tailwindcss/typography": "^0.5.13",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.1",
     "astro": "^4.16.3",
@@ -38,6 +37,7 @@
     "tailwindcss": "^3.4.3"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.13",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.6.8"
   }

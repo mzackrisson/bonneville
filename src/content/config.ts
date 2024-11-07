@@ -3,35 +3,15 @@ import { z, defineCollection } from "astro:content";
 
 // 2. Define your collection(s)
 
-// components (reusable structures)
-
+//collection for creating multiple generic pages
 const pagesCollection = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string(),
-    // description: z.string(),
   }),
 });
 
-// const boardMemberCollection = defineCollection({
-//   type: "data",
-//   schema: z.object({
-//     name: z.string(),
-//     title: z.string(),
-//     image: z.string(),
-//     description: z.string(),
-//   }),
-// });
-
-// const titleAndTextCollection = defineCollection({
-//   type: "data",
-//   schema: z.object({
-//     title: z.string(),
-//     text: z.string(),
-//   }),
-// });
-
-//pages
+//specific pages
 const startPageCollection = defineCollection({
   type: "data",
   schema: z.object({
@@ -54,7 +34,6 @@ const startPageCollection = defineCollection({
   }),
 });
 
-//wip lägga till members och title and text i denna singleton
 const omForeningenCollection = defineCollection({
   type: "content",
   schema: z.object({
@@ -65,6 +44,7 @@ const omForeningenCollection = defineCollection({
         text: z.string(),
       }),
     ),
+    documents: z.string(),
     members: z.array(
       z.object({
         name: z.string(),
@@ -79,8 +59,6 @@ const omForeningenCollection = defineCollection({
 // 3. Export a single `collections` object to register your collection(s)
 //    This key should match your collection directory name in "src/content"
 export const collections = {
-  // members: boardMemberCollection,
-  // titleandtext: titleAndTextCollection,
   startpage: startPageCollection,
   omforeningenpage: omForeningenCollection,
   pages: pagesCollection,

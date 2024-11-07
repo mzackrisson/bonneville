@@ -1,0 +1,33 @@
+---
+import Container from "@components/container.astro";
+import Layout from "@layouts/Layout.astro";
+import { getCollection, getEntryBySlug } from "astro:content";
+import Pagelayout from "@layouts/pageLayout.astro";
+
+//get correct md file
+const { slug } = Astro.params;
+if (slug === undefined) {
+  throw new Error("slug is undefined");
+}
+const page = await getEntryBySlug("pages", slug);
+if (page === undefined) {
+  throw new Error("boende is undefined");
+}
+
+export async function getStaticPaths() {
+  const pages = await getCollection("pages");
+  return pages.map((page) => ({
+    params: { slug: page.slug },
+  }));
+}
+
+const { Content } = await page.render();
+---
+
+<Layout title="">
+  <Container>
+    <Pagelayout>
+      <Content />
+    </Pagelayout>
+  </Container>
+</Layout>

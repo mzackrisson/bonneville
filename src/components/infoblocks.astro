@@ -4,6 +4,7 @@ import { getEntry } from "astro:content";
 const startpage = await getEntry("startpage", "index");
 ---
 
+<!-- change to grid to put buttons on same line -->
 <section class="flex h-full flex-wrap justify-center gap-16">
   {
     startpage.data.infoblock.map(({ buttontext, title, url, text }) => (

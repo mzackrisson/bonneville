@@ -1,0 +1,9 @@
+---
+import { getEntry } from "astro:content";
+
+const omforeningen = await getEntry("omforeningen", "index");
+---
+
+<div>
+  {omforeningen.data.documents}
+</div>

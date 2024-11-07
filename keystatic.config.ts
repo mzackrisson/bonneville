@@ -85,6 +85,7 @@ export default config({
             text: fields.text({ label: "Text" }),
           }),
         ),
+        documents: fields.file({ label: "Årsredovisningar" }),
         members: fields.array(
           fields.object({
             name: fields.text({ label: "Namn" }),

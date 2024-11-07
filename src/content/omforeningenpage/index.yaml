@@ -1,14 +1,15 @@
 title: >-
   Föreningen består av 200 medlemmar varav 5 personer utgör styrelsen.
-  Kontaktuppgifter till alla styrelsemedlemmar finns nedan. 
+  Kontaktuppgifter till alla styrelsemedlemmar finns nedan.
 titleandtext:
   - title: Styrelsen
     text: >-
       Föreningen består av 200 medlemmar varav 7 personer utgör styrelsen.
       Kontaktuppgifter till alla styrelsemedlemmar finns nedan. Styrelsen håller
       i möten och ser till att fastigheten underhålls.
+documents: documents.pdf
 members:
-  - name: 'Lisa '
+  - name: "Lisa "
     title: Ordförande
     image: /src/assets/images/people/members/0/image.jpg
     description: >-
