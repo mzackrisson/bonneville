@@ -8,10 +8,10 @@ const omforeningen = await getEntry("omforeningenpage", "index");
 ---
 
 <!-- startpage.data.infoblock.map(({ buttontext, title, url, text }) => ( -->
-<section class="mx-auto grid max-w-6xl">
-  <h1 class="text-4xl font-bold">Medlemmar</h1>
+<section class="mx-auto grid">
+  <h1 class="text-3xl">Medlemmar</h1>
   <div
-    class="mx-auto flex w-full flex-wrap justify-center gap-10 pt-14 xl:max-w-6xl xl:justify-start">
+    class="mx-auto flex w-full flex-wrap justify-center gap-10 pt-14 xl:justify-start">
     {
       omforeningen.data.members.map(
         async ({ name, title, image, description }) => {
