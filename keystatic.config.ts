@@ -37,38 +37,6 @@ export default config({
         }),
       },
     }),
-    // titleandtext: collection({
-    //   label: "Title and text",
-    //   path: "src/content/titleandtext/*",
-    //   slugField: "title",
-    //   format: {
-    //     data: "yaml",
-    //   },
-    //   schema: {
-    //     title: fields.slug({ name: { label: "Titel" } }),
-    //     text: fields.text({ label: "Text" }),
-    //   },
-    // }),
-
-    //   members: collection({
-    //     label: "Styrelsemedlemmar",
-    //     slugField: "name",
-    //     path: "src/content/members/*",
-    //     format: {
-    //       data: "yaml",
-    //     },
-    //     schema: {
-    //       name: fields.slug({ name: { label: "Namn" } }),
-    //       title: fields.text({ label: "Titel" }),
-    //       image: fields.image({
-    //         label: "Bild",
-    //         directory: "src/assets/images/people",
-    //         publicPath: "/src/assets/images/people/",
-    //       }),
-    //       description: fields.text({ label: "Beskrivning", multiline: true }),
-    //     },
-    //   }),
-    // },
   },
   singletons: {
     omforeningenpage: singleton({
@@ -78,18 +46,24 @@ export default config({
         data: "yaml",
       },
       schema: {
-        title: fields.text({ label: "title" }),
         titleandtext: fields.array(
           fields.object({
-            title: fields.text({ label: "Titel" }),
-            text: fields.text({ label: "Text" }),
+            title: fields.text({
+              label: "Titel",
+            }),
+            text: fields.text({
+              label: "Text",
+              description: "Generell information",
+              multiline: true,
+            }),
           }),
+          { label: "Title and text block" },
         ),
-        documents: fields.file({ label: "Årsredovisningar" }),
         members: fields.array(
           fields.object({
             name: fields.text({ label: "Namn" }),
-            title: fields.text({ label: "Titel" }),
+            title: fields.text({ label: "Post i styrelsen" }),
+            email: fields.text({ label: "Mailadress" }),
             image: fields.image({
               label: "Bild",
               directory: "src/assets/images/people",
@@ -100,6 +74,7 @@ export default config({
               multiline: true,
             }),
           }),
+          { label: "Member cards" },
         ),
       },
     }),
@@ -110,7 +85,6 @@ export default config({
         data: "yaml",
       },
       schema: {
-        title: fields.text({ label: "Titel" }),
         heroimage: fields.array(
           fields.object({
             title: fields.text({ label: "Title" }),
@@ -121,6 +95,7 @@ export default config({
               publicPath: "/src/assets/images/building/",
             }),
           }),
+          { label: "Hero image" },
         ),
         infoblock: fields.array(
           fields.object({
@@ -132,6 +107,7 @@ export default config({
             buttontext: fields.text({ label: "button text" }),
             url: fields.url({ label: "path to page here" }),
           }),
+          { label: "Infoblocks" },
         ),
       },
     }),

@@ -1,50 +1,41 @@
-title: >-
-  Föreningen består av 200 medlemmar varav 5 personer utgör styrelsen.
-  Kontaktuppgifter till alla styrelsemedlemmar finns nedan.
 titleandtext:
   - title: Styrelsen
     text: >-
       Föreningen består av 200 medlemmar varav 7 personer utgör styrelsen.
       Kontaktuppgifter till alla styrelsemedlemmar finns nedan. Styrelsen håller
       i möten och ser till att fastigheten underhålls.
-documents: documents.pdf
 members:
-  - name: 'Lisa '
+  - name: "Lisa "
     title: Ordförande
     image: /src/assets/images/people/members/0/image.jpg
+    email: ordforande@mail.se
     description: >-
       Ordförande ansvarar för att kalla till möten och ser till att föreningens
       arbetsplan efterföljs.
 
-
-      Email: ordforande@mail.se
   - name: Oscar
     title: Kassör
     image: /src/assets/images/people/members/1/image.jpg
+    email: kassor@mail.se
     description: |-
       Sköter bokföringen
-
-      Email: kassor@mail.se
   - name: Nour
     title: Informatör
     image: /src/assets/images/people/members/2/image.jpg
+    email: informator@mail.se
     description: |-
       För anteckningar och skickar ut nyhetsbrev.
-
-      Email: informator@mail.se
   - name: Cassandra
     title: Miljöansvarig
     image: /src/assets/images/people/members/3/image.jpg
+    email: miljoansvarig@mail.se
     description: |-
       Överser alla gemensamma rabatter och grönytor samt gemensamma lokaler-
 
-      Email: miljoansvarig@mail.se
   - name: Pekka
     title: Aktivitetsansvarig
     image: /src/assets/images/people/members/4/image.jpg
+    email: Aktivitetsansvarig@mail.se
     description: >-
       Styr upp städdagar, grilldagar och andra aktiviteter som föreningen ägnar
       sig åt.
-
-
-      Email: Aktivitetsansvarig@mail.se

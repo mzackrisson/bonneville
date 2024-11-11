@@ -15,7 +15,6 @@ const pagesCollection = defineCollection({
 const startPageCollection = defineCollection({
   type: "data",
   schema: z.object({
-    title: z.string(),
     heroimage: z.array(
       z.object({
         title: z.string(),
@@ -37,18 +36,17 @@ const startPageCollection = defineCollection({
 const omForeningenCollection = defineCollection({
   type: "content",
   schema: z.object({
-    title: z.string(),
     titleandtext: z.array(
       z.object({
         title: z.string(),
         text: z.string(),
       }),
     ),
-    documents: z.string(),
     members: z.array(
       z.object({
         name: z.string(),
         title: z.string(),
+        email: z.string(),
         image: z.string(),
         description: z.string(),
       }),
