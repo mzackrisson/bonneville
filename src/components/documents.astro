@@ -1,9 +1,9 @@
 ---
 import { getEntry } from "astro:content";
 
-const omforeningen = await getEntry("omforeningen", "index");
+const omforeningen = await getEntry("omforeningenpage", "documents");
 ---
 
-<div>
+<div class="h-96 w-full">
   {omforeningen.data.documents}
 </div>
