@@ -7,30 +7,30 @@ import { Image } from "astro:assets";
 const omforeningen = await getEntry("omforeningenpage", "index");
 ---
 
-<!-- startpage.data.infoblock.map(({ buttontext, title, url, text }) => ( -->
 <section class="mx-auto grid">
-  <h1 class="text-3xl">Medlemmar</h1>
+  <h1 class="text-3xl font-semibold leading-snug tracking-tight">Medlemmar</h1>
   <div
     class="mx-auto flex w-full flex-wrap justify-center gap-10 pt-14 xl:justify-start">
     {
       omforeningen.data.members.map(
-        async ({ name, title, image, description }) => {
+        async ({ name, title, image, description, email }) => {
           const img = (await import(image)).default as ImageMetadata;
           return (
-            <div class="mb-12 max-w-64">
-              <Image
-                class="aspect-square object-cover"
-                src={img}
-                alt={`Bild på ${name}`}
-              />
-
-              <div class="flex h-full flex-col">
-                <h2 class="flex justify-center py-4 text-3xl font-semibold leading-snug tracking-tight">
+            <div class="mb-12 flex max-w-64 flex-col justify-between">
+              <div>
+                <Image
+                  class="aspect-square object-cover"
+                  src={img}
+                  alt={`Bild på ${name}`}
+                />
+                <h2 class="pt-2 text-3xl leading-snug tracking-tight">
                   {name}
                 </h2>
-                <p class="pt-4">{title}</p>
+                <p class="pt-4 font-semibold">{title}</p>
                 <p class="pt-3">{description}</p>
               </div>
+
+              <p class="pt-3">{email}</p>
             </div>
           );
         },
