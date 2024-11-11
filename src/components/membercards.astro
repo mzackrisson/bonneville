@@ -10,27 +10,27 @@ const omforeningen = await getEntry("omforeningenpage", "index");
 <section class="mx-auto grid">
   <h1 class="text-3xl font-semibold leading-snug tracking-tight">Medlemmar</h1>
   <div
-    class="mx-auto flex w-full flex-wrap justify-center gap-10 pt-14 xl:justify-start">
+    class="mx-auto flex w-full flex-wrap justify-center gap-16 pt-14 xl:justify-start">
     {
       omforeningen.data.members.map(
         async ({ name, title, image, description, email }) => {
           const img = (await import(image)).default as ImageMetadata;
           return (
-            <div class="mb-12 flex max-w-64 flex-col justify-between">
+            <div class="mb-12 flex max-w-64 flex-col justify-between rounded-md border">
               <div>
                 <Image
                   class="aspect-square object-cover"
                   src={img}
                   alt={`Bild på ${name}`}
                 />
-                <h2 class="pt-2 text-3xl leading-snug tracking-tight">
+                <h2 class="px-3 pt-3 text-2xl font-semibold leading-snug tracking-tight">
                   {name}
                 </h2>
-                <p class="pt-4 font-semibold">{title}</p>
-                <p class="pt-3">{description}</p>
+                <p class="px-3 pt-3 font-semibold">{title}</p>
+                <p class="px-3 pt-3">{description}</p>
               </div>
 
-              <p class="pt-3">{email}</p>
+              <p class="px-3 pt-3">{email}</p>
             </div>
           );
         },

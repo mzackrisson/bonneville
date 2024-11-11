@@ -10,27 +10,20 @@ import Titleandtext from "./titleandtext.astro";
 const startpage = await getEntry("startpage", "index");
 ---
 
-<div class="justify-content flex w-full items-center">
+<div class="justify-content flex w-full items-center shadow-xl">
   {
     startpage.data.heroimage.map(async ({ title, text, image }) => {
       const img = (await import(image)).default as ImageMetadata;
       return (
-        <div class="relative flex w-full flex-col">
+        <div class="flex w-full items-center justify-center rounded-md border border-gray-700 bg-yellow-100">
+          <h2 class="my-10 text-center text-5xl font-bold tracking-wider text-gray-900/75 md:text-5xl">
+            {title}
+          </h2>
           <Image
-            class="w-full object-cover md:h-96"
+            class="h-96 w-full object-cover p-4"
             src={img}
             alt={`Bild på ${title}`}
           />
-          <div class="absolute top-0 flex h-full w-full flex-col items-center justify-center bg-gray-400 bg-opacity-50 text-3xl xl:top-0">
-            <h2 class="mx-10 my-10 text-center text-5xl font-semibold md:text-7xl">
-              {" "}
-              {title}{" "}
-            </h2>
-            <p class="mx-10 my-10 hidden w-2/3 text-center text-3xl lg:block">
-              {" "}
-              {text}{" "}
-            </p>
-          </div>
         </div>
       );
     })

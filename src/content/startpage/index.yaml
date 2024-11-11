@@ -7,7 +7,7 @@ heroimage:
 infoblock:
   - title: Boendesidor
     text: Läs om gemensamma lokaler
-    buttontext: Mer info för boende
+    buttontext: Läs mer
     url: /boende
   - title: Föreningen
     text: Läs om föreningens styrelse och ta del av stadgar och årsredovisningar
@@ -15,5 +15,5 @@ infoblock:
     url: /omforeningen
   - title: Engagera dig
     text: Engagera dig i vår förening
-    buttontext: Mer info här
+    buttontext: Läs mer
     url: /404

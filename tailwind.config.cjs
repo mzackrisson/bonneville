@@ -12,6 +12,15 @@ module.exports = {
           ...defaultTheme.fontFamily.sans,
         ],
       },
+      animation: {
+        wiggle: "wiggle 0.5s ease-in-out infinite",
+      },
+      keyframes: {
+        wiggle: {
+          "0%, 100%": { transform: "rotate(-2deg)" },
+          "50%": { transform: "rotate(2deg)" },
+        },
+      },
     },
   },
   plugins: [require("@tailwindcss/typography")],
