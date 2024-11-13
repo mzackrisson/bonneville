@@ -16,10 +16,10 @@ const omforeningen = await getEntry("omforeningenpage", "index");
         async ({ name, title, image, description, email }) => {
           const img = (await import(image)).default as ImageMetadata;
           return (
-            <div class="mb-12 flex max-w-64 flex-col justify-between rounded-md border">
+            <div class="mb-12 flex max-w-64 flex-col justify-between rounded-md border border-gray-600 bg-yellow-100">
               <div>
                 <Image
-                  class="aspect-square object-cover"
+                  class="aspect-square object-cover p-2"
                   src={img}
                   alt={`Bild på ${name}`}
                 />
@@ -29,8 +29,14 @@ const omforeningen = await getEntry("omforeningenpage", "index");
                 <p class="px-3 pt-3 font-semibold">{title}</p>
                 <p class="px-3 pt-3">{description}</p>
               </div>
-
-              <p class="px-3 pt-3">{email}</p>
+              <div class="group relative">
+                <p class="email_address cursor-pointer p-3">
+                  {email}
+                  <p class="absolute top-10 w-full translate-x-11 -rotate-45 scale-0 rounded-md p-3 text-center text-orange-900 group-hover:scale-100">
+                    Klicka för att kopiera mailadress
+                  </p>
+                </p>
+              </div>
             </div>
           );
         },
@@ -38,3 +44,15 @@ const omforeningen = await getEntry("omforeningenpage", "index");
     }
   </div>
 </section>
+
+<script>
+  const email_adresses = document.getElementsByClassName("email_address");
+
+  // console.log(email_adresses);
+  for (let i = 0; i < email_adresses.length; i++) {
+    let email = email_adresses[i];
+    email.addEventListener("click", function copyText() {
+      navigator.clipboard.writeText(email.innerHTML);
+    });
+  }
+</script>

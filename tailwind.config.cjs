@@ -14,6 +14,7 @@ module.exports = {
       },
       animation: {
         wiggle: "wiggle 0.5s ease-in-out infinite",
+        underline: "",
       },
       keyframes: {
         wiggle: {

@@ -5,13 +5,13 @@ import { getCollection, getEntry } from "astro:content";
 const omforeningen = await getEntry("omforeningenpage", "index");
 ---
 
-<section class="flex flex-col justify-center mt-16 mb-20 ">
+<section class="flex bg-yellow-100 flex-col justify-center border  border-gray-600 rounded-md p-3 pb-6 mt-16 mb-20 ">
   {
     omforeningen.data.titleandtext.map(({ title, text }) => (
         <h2 class=" text-3xl h-full font-semibold leading-snug tracking-tight">
           {title}
         </h2>
-        <p class=" h-full text-xl leading-snug pt-4 tracking-tight">
+        <p class="h-full text-xl leading-snug pt-4 tracking-tight">
           {text}
         </p>
     ))

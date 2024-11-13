@@ -38,10 +38,8 @@ const menuitems = [
     class="my-5 flex flex-col items-center justify-between pt-8 lg:flex-row">
     <Astronav>
       <div class="flex w-full items-center justify-between lg:w-auto">
-        <a href="/" class="text-lg"
-          ><span class="font-bold text-slate-900 hover:text-gray-600"
-            >LOGGA</span
-          >
+        <a href="/" class="text-lg hover:animate-wiggle"
+          ><span class="font-bold text-slate-900">LOGGA</span>
         </a>
         <div class="block lg:hidden">
           <MenuIcon class="h-4 w-4 text-gray-800" />
@@ -63,14 +61,16 @@ const menuitems = [
                 {!item.children && (
                   <li>
                     <a
+                      class="group"
                       href={item.path}
-                      class="flex items-center py-2 text-gray-500 hover:text-gray-900 lg:px-3">
-                      <span> {item.title}</span>
+                      class="flex flex-col items-center py-2 text-gray-800 lg:px-3">
+                      <span class=""> {item.title}</span>
                       {item.badge && (
                         <span class="ml-1 animate-pulse rounded-full bg-indigo-600 px-2 py-0.5 text-[10px] font-semibold uppercase text-white">
                           New
                         </span>
                       )}
+                      <div class="h-0.5 w-full origin-left scale-0 cursor-pointer bg-black group-hover:scale-100" />
                     </a>
                   </li>
                 )}
