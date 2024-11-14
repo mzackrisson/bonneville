@@ -5,6 +5,7 @@ import { Image } from "astro:assets";
 
 // const members = await getCollection("members");
 const omforeningen = await getEntry("omforeningenpage", "index");
+const props = Astro.props;
 ---
 
 <section class="mx-auto grid">
@@ -29,13 +30,21 @@ const omforeningen = await getEntry("omforeningenpage", "index");
                 <p class="px-3 pt-3 font-semibold">{title}</p>
                 <p class="px-3 pt-3">{description}</p>
               </div>
-              <div class="group relative">
-                <p class="email_address cursor-pointer p-3">
-                  {email}
-                  <p class="absolute top-10 w-full translate-x-11 -rotate-45 scale-0 rounded-md p-3 text-center text-orange-900 group-hover:scale-100">
-                    Klicka för att kopiera mailadress
-                  </p>
-                </p>
+              <div class="address_element flex items-center gap-2">
+                <p class="email_address cursor-pointer p-3">{email}</p>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 15 15"
+                  {...props}>
+                  <path
+                    class="save_icon"
+                    fill="none"
+                    stroke="currentColor"
+                    d="M4.5 14.5v-3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3m3 0h-12a1 1 0 0 1-1-1v-12a1 1 0 0 1 1-1h8.586a1 1 0 0 1 .707.293l3.414 3.414a1 1 0 0 1 .293.707V13.5a1 1 0 0 1-1 1Z"
+                  />
+                </svg>
               </div>
             </div>
           );
@@ -47,12 +56,21 @@ const omforeningen = await getEntry("omforeningenpage", "index");
 
 <script>
   const email_adresses = document.getElementsByClassName("email_address");
+  const address_element = document.getElementsByClassName("address_element");
+  const save_icon = document.getElementsByClassName("save_icon");
 
-  // console.log(email_adresses);
-  for (let i = 0; i < email_adresses.length; i++) {
-    let email = email_adresses[i];
-    email.addEventListener("click", function copyText() {
+  for (let i = 0; i < address_element.length; i++) {
+    const add_element = address_element[i];
+    const email = email_adresses[i];
+    const icon = save_icon[i];
+
+    // let el = icon.getAttribute("fill");
+    // console.log(el);
+
+    add_element.addEventListener("click", function copyText() {
       navigator.clipboard.writeText(email.innerHTML);
+      icon.removeAttribute("fill");
+      icon.setAttribute("fill", "#26a653");
     });
   }
 </script>
