@@ -18,7 +18,6 @@ const startPageCollection = defineCollection({
     heroimage: z.array(
       z.object({
         title: z.string(),
-        text: z.string(),
         image: z.string(),
       }),
     ),
@@ -26,8 +25,13 @@ const startPageCollection = defineCollection({
       z.object({
         title: z.string(),
         text: z.string(),
-        buttontext: z.string(),
         url: z.string(),
+      }),
+    ),
+    news: z.array(
+      z.object({
+        title: z.string(),
+        text: z.string(),
       }),
     ),
   }),
@@ -40,13 +44,14 @@ const omForeningenCollection = defineCollection({
       z.object({
         title: z.string(),
         text: z.string(),
+        email: z.string(),
+        buttontext: z.string(),
       }),
     ),
     members: z.array(
       z.object({
         name: z.string(),
         title: z.string(),
-        email: z.string(),
         image: z.string(),
         description: z.string(),
       }),

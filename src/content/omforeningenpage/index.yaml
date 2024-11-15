@@ -4,38 +4,30 @@ titleandtext:
       Föreningen består av 200 medlemmar varav 7 personer utgör styrelsen.
       Kontaktuppgifter till alla styrelsemedlemmar finns nedan. Styrelsen håller
       i möten och ser till att fastigheten underhålls.
+    email: brfbonneville@gmail.com
+    buttontext: Maila styrelsen
 members:
-  - name: "Lisa "
+  - name: 'Lisa '
     title: Ordförande
     image: /src/assets/images/people/members/0/image.jpg
-    email: ordforande@mail.se
     description: >-
       Ordförande ansvarar för att kalla till möten och ser till att föreningens
       arbetsplan efterföljs.
-
   - name: Oscar
     title: Kassör
     image: /src/assets/images/people/members/1/image.jpg
-    email: kassor@mail.se
-    description: |-
-      Sköter bokföringen
+    description: Sköter bokföringen
   - name: Nour
     title: Informatör
     image: /src/assets/images/people/members/2/image.jpg
-    email: informator@mail.se
-    description: |-
-      För anteckningar och skickar ut nyhetsbrev.
+    description: För anteckningar och skickar ut nyhetsbrev.
   - name: Cassandra
     title: Miljöansvarig
     image: /src/assets/images/people/members/3/image.jpg
-    email: miljoansvarig@mail.se
-    description: |-
-      Överser alla gemensamma rabatter och grönytor samt gemensamma lokaler-
-
+    description: Överser alla gemensamma rabatter och grönytor samt gemensamma lokaler-
   - name: Pekka
     title: Aktivitetsansvarig
     image: /src/assets/images/people/members/4/image.jpg
-    email: Aktivitetsansvarig@mail.se
     description: >-
       Styr upp städdagar, grilldagar och andra aktiviteter som föreningen ägnar
       sig åt.

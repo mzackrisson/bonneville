@@ -39,6 +39,49 @@ export default config({
     }),
   },
   singletons: {
+    startpage: singleton({
+      label: "Startsida",
+      path: "src/content/startpage/",
+      format: {
+        data: "yaml",
+      },
+      schema: {
+        heroimage: fields.array(
+          fields.object({
+            title: fields.text({ label: "Title" }),
+            image: fields.image({
+              label: "Bild",
+              directory: "src/assets/images/building",
+              publicPath: "/src/assets/images/building/",
+            }),
+          }),
+          { label: "Hero image" },
+        ),
+        infoblock: fields.array(
+          fields.object({
+            title: fields.text({ label: "Infoblock" }),
+            text: fields.text({
+              label: "Text",
+              validation: { isRequired: true, length: { min: 1, max: 300 } },
+            }),
+
+            url: fields.url({ label: "path to page here" }),
+          }),
+          { label: "Infoblocks" },
+        ),
+        news: fields.array(
+          fields.object({
+            title: fields.text({ label: "Titel" }),
+            text: fields.text({
+              label: "Text",
+              validation: { isRequired: true, length: { min: 1, max: 300 } },
+              multiline: true,
+            }),
+          }),
+          { label: "News" },
+        ),
+      },
+    }),
     omforeningenpage: singleton({
       label: "Om föreningen",
       path: "src/content/omforeningenpage/",
@@ -56,6 +99,8 @@ export default config({
               description: "Generell information",
               multiline: true,
             }),
+            email: fields.text({ label: "Mailadress" }),
+            buttontext: fields.text({ label: "Button text" }),
           }),
           { label: "Title and text block" },
         ),
@@ -63,7 +108,6 @@ export default config({
           fields.object({
             name: fields.text({ label: "Namn" }),
             title: fields.text({ label: "Post i styrelsen" }),
-            email: fields.text({ label: "Mailadress" }),
             image: fields.image({
               label: "Bild",
               directory: "src/assets/images/people",
@@ -75,39 +119,6 @@ export default config({
             }),
           }),
           { label: "Member cards" },
-        ),
-      },
-    }),
-    startpage: singleton({
-      label: "Startsida",
-      path: "src/content/startpage/",
-      format: {
-        data: "yaml",
-      },
-      schema: {
-        heroimage: fields.array(
-          fields.object({
-            title: fields.text({ label: "Title" }),
-            text: fields.text({ label: "Text" }),
-            image: fields.image({
-              label: "Bild",
-              directory: "src/assets/images/building",
-              publicPath: "/src/assets/images/building/",
-            }),
-          }),
-          { label: "Hero image" },
-        ),
-        infoblock: fields.array(
-          fields.object({
-            title: fields.text({ label: "Infoblock" }),
-            text: fields.text({
-              label: "Text",
-              validation: { isRequired: true, length: { min: 1, max: 300 } },
-            }),
-            buttontext: fields.text({ label: "button text" }),
-            url: fields.url({ label: "path to page here" }),
-          }),
-          { label: "Infoblocks" },
         ),
       },
     }),

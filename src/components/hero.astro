@@ -10,7 +10,7 @@ const startpage = await getEntry("startpage", "index");
 
 <div class="justify-content flex-col items-center lg:relative">
   {
-    startpage.data.heroimage.map(async ({ title, text, image }) => {
+    startpage.data.heroimage.map(async ({ title, image }) => {
       const img = (await import(image)).default as ImageMetadata;
       return (
         <div class="relative flex items-center justify-center">
