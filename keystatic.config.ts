@@ -5,7 +5,7 @@ export default config({
   },
   ui: {
     navigation: {
-      sidor: ["omforeningenpage", "startpage", "pages"],
+      sidor: ["omforeningenpage", "startpage", "pages", "news"],
     },
   },
   collections: {
@@ -37,6 +37,22 @@ export default config({
         }),
       },
     }),
+    news: collection({
+      label: "Nyheter",
+      path: "src/content/news/*",
+      slugField: "pubDate",
+      format: {
+        contentField: "content",
+      },
+      schema: {
+        pubDate: fields.slug({
+          name: { label: "Datum", validation: { isRequired: true } },
+        }),
+        content: fields.markdoc({
+          label: "Content",
+        }),
+      },
+    }),
   },
   singletons: {
     startpage: singleton({
@@ -62,23 +78,15 @@ export default config({
             title: fields.text({ label: "Infoblock" }),
             text: fields.text({
               label: "Text",
-              validation: { isRequired: true, length: { min: 1, max: 300 } },
+              validation: {
+                isRequired: true,
+                length: { min: 1, max: 300 },
+              },
             }),
 
             url: fields.url({ label: "path to page here" }),
           }),
           { label: "Infoblocks" },
-        ),
-        news: fields.array(
-          fields.object({
-            title: fields.text({ label: "Titel" }),
-            text: fields.text({
-              label: "Text",
-              validation: { isRequired: true, length: { min: 1, max: 300 } },
-              multiline: true,
-            }),
-          }),
-          { label: "News" },
         ),
       },
     }),

@@ -11,6 +11,14 @@ const pagesCollection = defineCollection({
   }),
 });
 
+// news component
+const newsCollection = defineCollection({
+  type: "data",
+  schema: z.object({
+    pubDate: z.string(),
+  }),
+});
+
 //specific pages
 const startPageCollection = defineCollection({
   type: "data",
@@ -26,12 +34,6 @@ const startPageCollection = defineCollection({
         title: z.string(),
         text: z.string(),
         url: z.string(),
-      }),
-    ),
-    news: z.array(
-      z.object({
-        title: z.string(),
-        text: z.string(),
       }),
     ),
   }),
@@ -65,4 +67,5 @@ export const collections = {
   startpage: startPageCollection,
   omforeningenpage: omForeningenCollection,
   pages: pagesCollection,
+  news: newsCollection,
 };
