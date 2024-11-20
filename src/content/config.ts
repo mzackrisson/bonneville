@@ -13,7 +13,7 @@ const pagesCollection = defineCollection({
 
 // news component
 const newsCollection = defineCollection({
-  type: "data",
+  type: "content",
   schema: z.object({
     pubDate: z.string(),
   }),
