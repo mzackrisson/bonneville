@@ -16,6 +16,7 @@ const newsCollection = defineCollection({
   type: "content",
   schema: z.object({
     pubDate: z.string(),
+    text: z.string(),
   }),
 });
 

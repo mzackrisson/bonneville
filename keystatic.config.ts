@@ -42,15 +42,18 @@ export default config({
       path: "src/content/news/*",
       slugField: "pubDate",
       format: {
-        contentField: "content",
+        data: "yaml",
       },
       schema: {
         pubDate: fields.slug({
-          name: { label: "Datum", validation: { isRequired: true } },
+          name: {
+            label: "Datum",
+            validation: { isRequired: true },
+            description: "mm/dd/åååå",
+          },
         }),
-        content: fields.markdoc({
-          label: "Content",
-          extension: "md",
+        content: fields.text({
+          label: "text",
         }),
       },
     }),
