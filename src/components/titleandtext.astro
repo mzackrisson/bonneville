@@ -5,7 +5,7 @@ import { getCollection, getEntry } from "astro:content";
 const omforeningen = await getEntry("omforeningenpage", "index");
 ---
 
-<section class="flex bg-yellow-100 flex-col justify-center border  border-gray-600 rounded-md p-4 mt-16 mb-20 ">
+<section class="flex bg-yellow-100 flex-col justify-center border border-neutral-700 rounded-md p-4 mt-16 mb-20 ">
   {
     omforeningen.data.titleandtext.map(({ title, text, email, buttontext }) => (
         <h2 class=" text-3xl h-full font-semibold leading-snug tracking-tight">
@@ -14,7 +14,7 @@ const omforeningen = await getEntry("omforeningenpage", "index");
         <p class="h-full text-xl leading-snug pt-4 tracking-tight">
           {text}
         </p>
-        <a class="px-4 py-2 font-semibold bg-white border rounded-md border-black w-full max-w-max text-center mx-auto mt-4" href={`mailto:${email}`}>
+        <a class="px-4 py-2 font-semibold bg-white border rounded-md border-neutral-700 w-full max-w-max text-center mx-auto mt-4" href={`mailto:${email}`}>
           {buttontext}
         </a>
     ))
