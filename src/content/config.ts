@@ -13,10 +13,12 @@ const pagesCollection = defineCollection({
 
 // news component
 const newsCollection = defineCollection({
-  type: "content",
+  type: "data",
   schema: z.object({
     pubDate: z.string(),
     text: z.string(),
+    title: z.string(),
+    image: z.string().optional(),
   }),
 });
 

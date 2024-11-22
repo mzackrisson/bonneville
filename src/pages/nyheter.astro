@@ -1,23 +1,11 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import { getCollection, getEntry } from "astro:content";
 import Container from "@components/container.astro";
-import type { CollectionEntry } from "astro:content";
-
-const newsEntries = await getCollection("news");
-return newsEntries.map((entry) => ({
-  props: { entry },
-}));
-
-type Props = {
-  entry: CollectionEntry<"news">;
-};
-const { entry } = Astro.props;
-const { Content } = await entry.render();
+import News from "@components/news.astro";
 ---
 
-<Layout title="">
+<Layout>
   <Container>
-    <Content />
+    <News />
   </Container>
 </Layout>

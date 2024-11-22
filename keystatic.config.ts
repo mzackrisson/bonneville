@@ -52,8 +52,17 @@ export default config({
             description: "mm/dd/åååå",
           },
         }),
-        content: fields.text({
-          label: "text",
+        title: fields.text({
+          label: "Titel",
+        }),
+        text: fields.text({
+          label: "Text",
+          multiline: true,
+        }),
+        image: fields.image({
+          label: "Bild",
+          directory: "/src/assets/images/news",
+          publicPath: "/src/assets/images/news",
         }),
       },
     }),
@@ -123,7 +132,7 @@ export default config({
             image: fields.image({
               label: "Bild",
               directory: "src/assets/images/people",
-              publicPath: "/src/assets/images/people/",
+              publicPath: "/src/assets/images/people",
             }),
             description: fields.text({
               label: "Beskrivning",
