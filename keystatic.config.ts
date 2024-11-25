@@ -5,12 +5,13 @@ export default config({
   },
   ui: {
     navigation: {
-      sidor: ["omforeningenpage", "startpage", "pages", "news"],
+      sidor: ["startpage", "omforeningenpage", "pages"],
+      komponenter: ["news"],
     },
   },
   collections: {
     pages: collection({
-      label: "Sidor",
+      label: "Övriga sidor",
       path: "src/content/pages/*",
       slugField: "title",
       format: { contentField: "content" },
@@ -49,7 +50,7 @@ export default config({
           name: {
             label: "Datum",
             validation: { isRequired: true },
-            description: "mm/dd/åååå",
+            description: "åååå/mm/dd",
           },
         }),
         title: fields.text({
@@ -120,8 +121,19 @@ export default config({
               description: "Generell information",
               multiline: true,
             }),
-            email: fields.text({ label: "Mailadress" }),
-            buttontext: fields.text({ label: "Button text" }),
+            button: fields.conditional(
+              fields.checkbox({
+                label: "Lägg till mailknapp",
+                defaultValue: false,
+              }),
+              {
+                false: fields.empty(),
+                true: fields.object({
+                  buttontitle: fields.text({ label: "Titel på knapp" }),
+                  link: fields.text({ label: "Mailadress" }),
+                }),
+              },
+            ),
           }),
           { label: "Title and text block" },
         ),

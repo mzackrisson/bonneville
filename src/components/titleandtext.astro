@@ -5,18 +5,20 @@ import { getCollection, getEntry } from "astro:content";
 const omforeningen = await getEntry("omforeningenpage", "index");
 ---
 
-<section class="flex bg-yellow-100 flex-col justify-center border border-neutral-700 rounded-md p-4 mt-16 mb-20 ">
+<section class="h-full w-full">
   {
-    omforeningen.data.titleandtext.map(({ title, text, email, buttontext }) => (
-        <h2 class=" text-3xl h-full font-semibold leading-snug tracking-tight">
+    omforeningen.data.titleandtext.map(({ title, text, link, button }) => (
+      <div class="mb-20 mt-16 flex flex-col justify-center rounded-md border border-neutral-700 bg-yellow-100 p-4">
+        <h2 class="h-full text-3xl font-semibold leading-snug tracking-tight">
           {title}
         </h2>
-        <p class="h-full text-xl leading-snug pt-4 tracking-tight">
-          {text}
-        </p>
-        <a class="px-4 py-2 font-semibold bg-white border rounded-md border-neutral-700 w-full max-w-max text-center mx-auto mt-4" href={`mailto:${email}`}>
-          {buttontext}
+        <p class="h-full pt-4 text-xl leading-snug tracking-tight">{text}</p>
+        <a
+          class="mx-auto mt-4 w-full max-w-max rounded-md border border-neutral-700 bg-white px-4 py-2 text-center font-semibold"
+          href={`mailto:${button.link}`}>
+          {button.buttontitle}
         </a>
+      </div>
     ))
   }
 </section>

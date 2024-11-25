@@ -5,6 +5,9 @@ infoblock:
   - title: Om föreningen
     text: Ta del av information om föreningen och dess styrelsemedlemmar
     url: /omforeningen
+  - title: Gemensamma lokaler
+    text: Läs om föreningens gemensamma lokaler
+    url: /boende
   - title: Engagera dig
-    text: lorem ipsum ding dong
+    text: Läs mer om hur du kan engagera dig i föreningen!
     url: /omforeningen

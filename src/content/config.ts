@@ -49,8 +49,10 @@ const omForeningenCollection = defineCollection({
       z.object({
         title: z.string(),
         text: z.string(),
-        email: z.string(),
-        buttontext: z.string(),
+        button: z.object({
+          buttontitle: z.string().optional(),
+          link: z.string().optional(),
+        }),
       }),
     ),
     members: z.array(
