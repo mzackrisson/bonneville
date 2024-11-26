@@ -7,7 +7,7 @@ const omforeningen = await getEntry("omforeningenpage", "index");
 
 <section class="h-full w-full">
   {
-    omforeningen.data.titleandtext.map(({ title, text, link, button }) => (
+    omforeningen.data.titleandtext.map(({ title, text, button }) => (
       <div class="mb-20 mt-16 flex flex-col justify-center rounded-md border border-neutral-700 bg-yellow-100 p-4">
         <h2 class="h-full text-3xl font-semibold leading-snug tracking-tight">
           {title}
@@ -15,8 +15,8 @@ const omforeningen = await getEntry("omforeningenpage", "index");
         <p class="h-full pt-4 text-xl leading-snug tracking-tight">{text}</p>
         <a
           class="mx-auto mt-4 w-full max-w-max rounded-md border border-neutral-700 bg-white px-4 py-2 text-center font-semibold"
-          href={`mailto:${button.link}`}>
-          {button.buttontitle}
+          href={`mailto:${button}`}>
+          {button}
         </a>
       </div>
     ))
