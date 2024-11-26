@@ -13,11 +13,14 @@ const omforeningen = await getEntry("omforeningenpage", "index");
           {title}
         </h2>
         <p class="h-full pt-4 text-xl leading-snug tracking-tight">{text}</p>
-        <a
-          class="mx-auto mt-4 w-full max-w-max rounded-md border border-neutral-700 bg-white px-4 py-2 text-center font-semibold"
-          href={`mailto:${button}`}>
-          {button}
-        </a>
+
+        {button.value ? (
+          <a
+            class="mx-auto mt-4 w-full max-w-max rounded-md border border-neutral-700 bg-white px-4 py-2 text-center font-semibold"
+            href={`mailto:${button.value.link}`}>
+            {button.value.buttontitle}
+          </a>
+        ) : null}
       </div>
     ))
   }

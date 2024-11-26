@@ -123,14 +123,14 @@ export default config({
             }),
             button: fields.conditional(
               fields.checkbox({
-                label: "Lägg till mailknapp",
+                label: "Lägg till länk",
                 defaultValue: false,
               }),
               {
                 false: fields.empty(),
                 true: fields.object({
                   buttontitle: fields.text({ label: "Titel på knapp" }),
-                  link: fields.text({ label: "Mailadress" }),
+                  link: fields.text({ label: "Länk" }),
                 }),
               },
             ),

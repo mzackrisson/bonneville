@@ -50,8 +50,12 @@ const omForeningenCollection = defineCollection({
         title: z.string(),
         text: z.string(),
         button: z.object({
-          buttontitle: z.string().optional(),
-          link: z.string().optional(),
+          value: z
+            .object({
+              buttontitle: z.string(),
+              link: z.string(),
+            })
+            .optional(),
         }),
       }),
     ),
