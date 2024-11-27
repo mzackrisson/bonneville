@@ -6,7 +6,6 @@
     "types": ["astro/client", "unplugin-icons/types/astro"],
     "paths": {
       "@lib/*": ["lib/*"],
-      "@utils/*": ["utils/*"],
       "@components/*": ["components/*"],
       "@layouts/*": ["layouts/*"],
       "@assets/*": ["./src/assets/*"],

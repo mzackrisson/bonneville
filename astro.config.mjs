@@ -16,6 +16,7 @@ export default defineConfig({
       }),
     ],
   },
+  devToolbar: { enabled: false },
   integrations: [tailwind(), sitemap(), markdoc(), react(), keystatic()],
   output: 'hybrid',
 })

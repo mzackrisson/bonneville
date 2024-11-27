@@ -1,5 +1,17 @@
+---
+import { SITE_NAME } from '@lib/constants'
+---
+
 <footer class="my-20">
   <p class="text-center text-sm text-slate-500">
-    Copyright © {new Date().getFullYear()} Brf Bonneville. All rights reserved.
+    © <span class="year">{new Date().getFullYear()}</span>
+    {SITE_NAME}
   </p>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelector('.year')!.textContent =
+        `${new Date().getFullYear()}`
+    })
+  </script>
 </footer>

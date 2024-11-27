@@ -4,6 +4,7 @@ import Footer from '@components/footer.astro'
 import Navbar from '@components/navbar/navbar.astro'
 import '@fontsource-variable/inter'
 import '@fontsource-variable/bricolage-grotesque'
+import { BASE_TITLE, SITE_DESCRIPTION } from '@lib/constants'
 
 export interface Props {
   title: string
@@ -17,11 +18,7 @@ const ogImageDescription = ''
 
 const { title } = Astro.props
 
-const baseTitle = 'BRF Bonneville i Vega'
-// TODO: Add better description
-const baseDescription = baseTitle
-
-const makeTitle = title ? `${title} | ${baseTitle}` : baseTitle
+const makeTitle = title ? `${title} | ${BASE_TITLE}` : BASE_TITLE
 ---
 
 <!doctype html>
@@ -33,7 +30,7 @@ const makeTitle = title ? `${title} | ${baseTitle}` : baseTitle
     <meta name="generator" content={Astro.generator} />
     <SEO
       title={makeTitle}
-      description={baseDescription}
+      description={SITE_DESCRIPTION}
       canonical={canonicalURL}
       openGraph={{
         basic: {
