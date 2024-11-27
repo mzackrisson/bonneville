@@ -42,35 +42,39 @@ const menuitems = [
 ---
 
 <Container>
-  <header
-    class="my-5 flex flex-col items-center justify-between bg-red-400 pt-8 lg:flex-row">
-    <div class="w-max-w h-8">BRF Bonneville</div>
-
-    {
-      menuitems.map((item) => (
-        <>
-          {!item.children && (
-            <li class="list-none">
+  <header class="my-5 flex h-44 w-full items-center justify-between">
+    <a href="/">BRF Bonneville</a>
+    <ul class="flex gap-4">
+      {
+        menuitems.map((item) => (
+          <>
+            {!item.children && (
               <a
-                class="group"
                 href={item.path}
-                class="flex flex-col items-center py-2 text-gray-800 lg:px-3"
-              />
-              {item.title}
-            </li>
-          )}
-          {item.children && (
-            <li class="list-none">
-              <a
-                class="group"
-                href={item.path}
-                class="flex flex-col items-center py-2 text-gray-800 lg:px-3"
-              />
-              {item.title}
-            </li>
-          )}
-        </>
-      ))
-    }
+                class="group flex items-center justify-center">
+                <div class="h-1 w-1 cursor-pointer bg-black opacity-0 group-hover:opacity-100" />
+                <li class="">{item.title}</li>
+              </a>
+            )}
+            {item.children && (
+              <a href={item.path} class="flex items-center justify-center">
+                <div class="h-1 w-1 cursor-pointer bg-black" />
+                <li class="group relative list-none">
+                  {item.title}
+                  <ul class="absolute inset-x-3 scale-0 items-center text-sm group-hover:scale-100">
+                    {item.children.map((element) => (
+                      <a href={element.path}>
+                        <li>{element.title}</li>
+                        <div class="h-1 w-1 cursor-pointer bg-black opacity-0 hover:opacity-100" />
+                      </a>
+                    ))}
+                  </ul>
+                </li>
+              </a>
+            )}
+          </>
+        ))
+      }
+    </ul>
   </header>
 </Container>
