@@ -1,37 +1,37 @@
-import { config, fields, collection, singleton } from "@keystatic/core";
+import { config, fields, collection, singleton } from '@keystatic/core'
 export default config({
   storage: {
-    kind: "local",
+    kind: 'local',
   },
   ui: {
     navigation: {
-      sidor: ["startpage", "omforeningenpage", "pages"],
-      komponenter: ["news"],
+      sidor: ['startpage', 'omforeningenpage', 'pages'],
+      komponenter: ['news'],
     },
   },
   collections: {
     pages: collection({
-      label: "Övriga sidor",
-      path: "src/content/pages/*",
-      slugField: "title",
-      format: { contentField: "content" },
-      entryLayout: "content",
+      label: 'Övriga sidor',
+      path: 'src/content/pages/*',
+      slugField: 'title',
+      format: { contentField: 'content' },
+      entryLayout: 'content',
       schema: {
         title: fields.slug({
-          name: { label: "Namn på sida", validation: { isRequired: true } },
+          name: { label: 'Namn på sida', validation: { isRequired: true } },
         }),
         content: fields.markdoc({
-          label: "Content",
-          extension: "md",
+          label: 'Content',
+          extension: 'md',
           options: {
             image: {
-              publicPath: "/assets/",
-              directory: "public/assets/",
+              publicPath: '/assets/',
+              directory: 'public/assets/',
             },
             heading: {
               levels: [1, 2, 3, 4],
               schema: {
-                id: fields.text({ label: "ID" }),
+                id: fields.text({ label: 'ID' }),
               },
             },
           },
@@ -39,121 +39,121 @@ export default config({
       },
     }),
     news: collection({
-      label: "Nyheter",
-      path: "src/content/news/*",
-      slugField: "pubDate",
+      label: 'Nyheter',
+      path: 'src/content/news/*',
+      slugField: 'pubDate',
       format: {
-        data: "yaml",
+        data: 'yaml',
       },
       schema: {
         pubDate: fields.slug({
           name: {
-            label: "Datum",
+            label: 'Datum',
             validation: { isRequired: true },
-            description: "åååå/mm/dd",
+            description: 'åååå/mm/dd',
           },
         }),
         title: fields.text({
-          label: "Titel",
+          label: 'Titel',
         }),
         text: fields.text({
-          label: "Text",
+          label: 'Text',
           multiline: true,
         }),
         image: fields.image({
-          label: "Bild",
-          directory: "/src/assets/images/news",
-          publicPath: "/src/assets/images/news",
+          label: 'Bild',
+          directory: '/src/assets/images/news',
+          publicPath: '/src/assets/images/news',
         }),
       },
     }),
   },
   singletons: {
     startpage: singleton({
-      label: "Startsida",
-      path: "src/content/startpage/",
+      label: 'Startsida',
+      path: 'src/content/startpage/',
       format: {
-        data: "yaml",
+        data: 'yaml',
       },
       schema: {
         heroimage: fields.array(
           fields.object({
-            title: fields.text({ label: "Title" }),
+            title: fields.text({ label: 'Title' }),
             image: fields.image({
-              label: "Bild",
-              directory: "src/assets/images/building",
-              publicPath: "/src/assets/images/building/",
+              label: 'Bild',
+              directory: 'src/assets/images/building',
+              publicPath: '/src/assets/images/building/',
             }),
           }),
-          { label: "Hero image" },
+          { label: 'Hero image' },
         ),
         infoblock: fields.array(
           fields.object({
-            title: fields.text({ label: "Infoblock" }),
+            title: fields.text({ label: 'Infoblock' }),
             text: fields.text({
-              label: "Text",
+              label: 'Text',
               validation: {
                 isRequired: true,
                 length: { min: 1, max: 300 },
               },
             }),
 
-            url: fields.url({ label: "path to page here" }),
+            url: fields.url({ label: 'path to page here' }),
           }),
-          { label: "Infoblocks" },
+          { label: 'Infoblocks' },
         ),
       },
     }),
     omforeningenpage: singleton({
-      label: "Om föreningen",
-      path: "src/content/omforeningenpage/",
+      label: 'Om föreningen',
+      path: 'src/content/omforeningenpage/',
       format: {
-        data: "yaml",
+        data: 'yaml',
       },
       schema: {
         titleandtext: fields.array(
           fields.object({
             title: fields.text({
-              label: "Titel",
+              label: 'Titel',
             }),
             text: fields.text({
-              label: "Text",
-              description: "Generell information",
+              label: 'Text',
+              description: 'Generell information',
               multiline: true,
             }),
             button: fields.conditional(
               fields.checkbox({
-                label: "Lägg till länk",
+                label: 'Lägg till länk',
                 defaultValue: false,
               }),
               {
                 false: fields.empty(),
                 true: fields.object({
-                  buttontitle: fields.text({ label: "Titel på knapp" }),
-                  link: fields.text({ label: "Länk" }),
+                  buttontitle: fields.text({ label: 'Titel på knapp' }),
+                  link: fields.text({ label: 'Länk' }),
                 }),
               },
             ),
           }),
-          { label: "Title and text block" },
+          { label: 'Title and text block' },
         ),
         members: fields.array(
           fields.object({
-            name: fields.text({ label: "Namn" }),
-            title: fields.text({ label: "Post i styrelsen" }),
+            name: fields.text({ label: 'Namn' }),
+            title: fields.text({ label: 'Post i styrelsen' }),
             image: fields.image({
-              label: "Bild",
-              directory: "src/assets/images/people",
-              publicPath: "/src/assets/images/people",
+              label: 'Bild',
+              directory: 'src/assets/images/people',
+              publicPath: '/src/assets/images/people',
             }),
             description: fields.text({
-              label: "Beskrivning",
+              label: 'Beskrivning',
               multiline: true,
             }),
           }),
-          { label: "Member cards" },
+          { label: 'Member cards' },
         ),
       },
     }),
   },
-});
+})

@@ -1,6 +1,6 @@
 ---
-import { Dropdown as DropdownContainer, DropdownItems } from "astro-navbar";
-const { title, lastItem, children } = Astro.props;
+import { Dropdown as DropdownContainer, DropdownItems } from 'astro-navbar'
+const { title, lastItem, children } = Astro.props
 ---
 
 <li class="relative">
@@ -27,10 +27,10 @@ const { title, lastItem, children } = Astro.props;
     <DropdownItems>
       <div
         class:list={[
-          "z-10 w-full lg:absolute lg:w-48",
+          'z-10 w-full lg:absolute lg:w-48',
           lastItem
-            ? "origin-top-right lg:right-0"
-            : "origin-top-left lg:left-0",
+            ? 'origin-top-right lg:right-0'
+            : 'origin-top-left lg:left-0',
         ]}>
         <div
           class="flex max-w-max flex-col px-3 lg:rounded-md lg:border lg:bg-white lg:py-2 lg:shadow">
