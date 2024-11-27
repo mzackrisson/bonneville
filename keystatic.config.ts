@@ -9,6 +9,7 @@ export default config({
       komponenter: ['news'],
     },
   },
+  locale: 'sv-SE',
   collections: {
     pages: collection({
       label: 'Övriga sidor',
