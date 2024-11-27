@@ -1,0 +1,76 @@
+---
+import Container from "@components/container.astro";
+import { useLayoutEffect } from "react";
+
+const menuitems = [
+  {
+    title: "Föreningen",
+    path: "/omforeningen",
+    children: [{ title: "Dokument", path: "/dokument" }],
+  },
+  {
+    title: "Boende",
+    path: "/boende",
+    children: [
+      { title: "Allmänt", path: "/boende" },
+      { title: "Nyheter", path: "/nyheter" },
+      // { title: "Dropdown Submenu", path: "#" },
+      // { title: "404 Page", path: "/404" },
+    ],
+  },
+  {
+    title: "Mäklarinfo",
+    path: "/maklarinfo",
+    // children: [
+    //   { title: "Action", path: "/" },
+    //   { title: "Another action", path: "#" },
+    //   { title: "Dropdown Submenu", path: "#" },
+    //   { title: "404 Page", path: "/404" },
+    // ],
+  },
+  {
+    title: "Admin vy",
+    path: "/keystatic",
+    // children: [
+    //   { title: "Action", path: "/" },
+    //   { title: "Another action", path: "#" },
+    //   { title: "Dropdown Submenu", path: "#" },
+    //   { title: "404 Page", path: "/404" },
+    // ],
+  },
+];
+---
+
+<Container>
+  <header
+    class="my-5 flex flex-col items-center justify-between bg-red-400 pt-8 lg:flex-row">
+    <div class="w-max-w h-8">BRF Bonneville</div>
+
+    {
+      menuitems.map((item) => (
+        <>
+          {!item.children && (
+            <li class="list-none">
+              <a
+                class="group"
+                href={item.path}
+                class="flex flex-col items-center py-2 text-gray-800 lg:px-3"
+              />
+              {item.title}
+            </li>
+          )}
+          {item.children && (
+            <li class="list-none">
+              <a
+                class="group"
+                href={item.path}
+                class="flex flex-col items-center py-2 text-gray-800 lg:px-3"
+              />
+              {item.title}
+            </li>
+          )}
+        </>
+      ))
+    }
+  </header>
+</Container>
