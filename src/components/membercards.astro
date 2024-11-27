@@ -1,9 +1,9 @@
 ---
-import type { ImageMetadata } from "astro";
-import { getEntry } from "astro:content";
-import { Image } from "astro:assets";
+import type { ImageMetadata } from 'astro'
+import { getEntry } from 'astro:content'
+import { Image } from 'astro:assets'
 
-const omforeningen = await getEntry("omforeningenpage", "index");
+const omforeningen = await getEntry('omforeningenpage', 'index')
 ---
 
 <section class="mx-auto grid">
@@ -13,7 +13,7 @@ const omforeningen = await getEntry("omforeningenpage", "index");
     {
       omforeningen.data.members.map(
         async ({ name, title, image, description }) => {
-          const img = (await import(image)).default as ImageMetadata;
+          const img = (await import(image)).default as ImageMetadata
           return (
             <div class="mb-12 flex max-w-64 flex-col justify-between rounded-md border border-gray-600 bg-yellow-100">
               <div>
@@ -29,7 +29,7 @@ const omforeningen = await getEntry("omforeningenpage", "index");
                 <p class="px-3 py-3">{description}</p>
               </div>
             </div>
-          );
+          )
         },
       )
     }
