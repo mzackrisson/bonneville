@@ -1,5 +1,6 @@
 ---
 import Container from '@components/container.astro'
+import { SITE_NAME } from '@lib/constants'
 
 const menuitems = [
   {
@@ -42,8 +43,7 @@ const menuitems = [
 
 <Container>
   <header class="my-5 flex h-44 w-full items-center justify-between">
-    <!-- TODO: Move this to a common place for configuring basic site info -->
-    <a href="/">BRF Bonneville</a>
+    <a href="/">{SITE_NAME}</a>
     <ul class="flex gap-4">
       {
         menuitems.map((item) => (
