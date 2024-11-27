@@ -1,6 +1,5 @@
 import { defineConfig } from 'astro/config'
 import tailwind from '@astrojs/tailwind'
-import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import Icons from 'unplugin-icons/vite'
 import markdoc from '@astrojs/markdoc'
@@ -16,6 +15,6 @@ export default defineConfig({
       }),
     ],
   },
-  integrations: [tailwind(), mdx(), sitemap(), icon(), markdoc(), keystatic()],
+  integrations: [tailwind(), sitemap(), markdoc(), keystatic()],
   output: 'hybrid',
 })
