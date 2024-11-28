@@ -18,7 +18,7 @@ const news = await getCollection('news')
             <h2 class="p-3 text-2xl font-semibold">{entry.data.pubDate}</h2>
             <p class="p-3">{entry.data.text}</p>
             <Image
-              class="mx-auto w-2/3 object-cover p-12"
+              class="mx-auto w-2/3 object-cover p-4"
               src={img}
               alt={'{entry.data.title}'}
             />
