@@ -1,9 +1,11 @@
 ---
-import { SEO } from 'astro-seo'
-import Footer from '@components/footer.astro'
-import Navbar from '@components/navbar/navbar.astro'
+import { SEO } from "astro-seo";
+import Footer from "@components/footer.astro";
+import Navbar from "@components/navbar/navbar.astro";
 import '@fontsource-variable/inter'
 import '@fontsource-variable/bricolage-grotesque'
+import V2Navbar from "@components/navbar/v2_navbar.astro";
+import Mobilenavbar from "@components/navbar/mobilenavbar.astro";
 import { BASE_TITLE, SITE_DESCRIPTION } from '@lib/constants'
 
 export interface Props {
@@ -46,7 +48,8 @@ const makeTitle = title ? `${title} | ${BASE_TITLE}` : BASE_TITLE
     />
   </head>
   <body>
-    <Navbar />
+    <V2Navbar />
+    <Mobilenavbar />
     <slot />
     <Footer />
     <style is:global>

@@ -33,6 +33,8 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@iconify-json/charm": "^1.2.1",
+    "@iconify-json/ep": "^1.2.1",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@tailwindcss/typography": "^0.5.15",

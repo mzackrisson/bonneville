@@ -1,0 +1,117 @@
+---
+import Container from "@components/container.astro";
+const props = Astro.props;
+import EpClose from "~icons/ep/close";
+import CharmMenuHamburger from "~icons/charm/menu-hamburger";
+
+const menuitems = [
+  {
+    title: "Föreningen",
+    path: "/omforeningen",
+    children: [{ title: "Dokument", path: "/dokument" }],
+  },
+  {
+    title: "Boende",
+    path: "/boende",
+    children: [
+      { title: "Allmänt", path: "/boende" },
+      { title: "Nyheter", path: "/nyheter" },
+      // { title: "Dropdown Submenu", path: "#" },
+      // { title: "404 Page", path: "/404" },
+    ],
+  },
+  {
+    title: "Mäklarinfo",
+    path: "/maklarinfo",
+    // children: [
+    //   { title: "Action", path: "/" },
+    //   { title: "Another action", path: "#" },
+    //   { title: "Dropdown Submenu", path: "#" },
+    //   { title: "404 Page", path: "/404" },
+    // ],
+  },
+  {
+    title: "Admin vy",
+    path: "/keystatic",
+    // children: [
+    //   { title: "Action", path: "/" },
+    //   { title: "Another action", path: "#" },
+    //   { title: "Dropdown Submenu", path: "#" },
+    //   { title: "404 Page", path: "/404" },
+    // ],
+  },
+];
+---
+
+<Container>
+  <header class="h-max-h my-5 flex w-full items-center justify-between">
+    <a href="/">BRF Bonneville</a>
+    <div class="flex flex-col">
+      <div class="relative lg:hidden" id="menu_icon">
+        <CharmMenuHamburger id="hamburger_menu" class="absolute right-0" />
+        <EpClose id="close_icon" class="absolute right-0 hidden" />
+      </div>
+      <div
+        id="menu_items_div"
+        class="border-grey-900 scale-0 border p-4 lg:block">
+        <ul id="menu_items" class="flex flex-col gap-4">
+          {
+            menuitems.map((item) => (
+              <>
+                {!item.children && (
+                  <a
+                    href={item.path}
+                    class="group flex items-center justify-center">
+                    {/* <div class="h-1 w-1 cursor-pointer bg-black opacity-0 group-hover:opacity-100" /> */}
+                    <li class="">{item.title}</li>
+                  </a>
+                )}
+                {item.children && (
+                  <a
+                    href={item.path}
+                    class="flex items-center justify-center gap-0">
+                    {/* <div class="h-1 w-1 cursor-pointer bg-black" /> */}
+                    <li class="group relative list-none">
+                      {item.title}
+                      <ul class="absolute inset-x-3 scale-0 items-center text-sm group-hover:scale-100">
+                        {item.children.map((element) => (
+                          <a href={element.path}>
+                            <li>{element.title}</li>
+                            {/* <div class="h-1 w-1 cursor-pointer bg-black opacity-0 hover:opacity-100" /> */}
+                          </a>
+                        ))}
+                      </ul>
+                    </li>
+                  </a>
+                )}
+              </>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </header>
+</Container>
+
+<script>
+  import { CloseIcon } from "astro-navbar";
+
+  const hamburgerMenu = document.getElementById("hamburger_menu");
+  const closeIcon = document.getElementById("close_icon");
+  const menuItems = document.getElementById("menu_items");
+  const menuDiv = document.getElementById("menu_items_div");
+
+  hamburgerMenu?.addEventListener("click", function () {
+    this.setAttribute("class", "hidden");
+    closeIcon?.setAttribute("class", "block");
+    menuDiv?.classList.remove("hidden");
+    menuDiv?.classList.add("scale-100");
+  });
+
+  closeIcon?.addEventListener("click", function () {
+    this.setAttribute("class", "hidden");
+    hamburgerMenu?.setAttribute("class", "block");
+    menuDiv?.classList.add("hidden");
+    menuItems?.classList.remove("flex-col");
+  });
+</script>

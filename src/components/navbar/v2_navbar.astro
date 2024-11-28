@@ -1,5 +1,8 @@
 ---
-import Container from '@components/container.astro'
+import EpClose from "~icons/ep/close";
+
+import Container from "@components/container.astro";
+import CharmMenuHamburger from "~icons/charm/menu-hamburger";
 import { SITE_NAME } from '@lib/constants'
 
 const menuitems = [
@@ -44,37 +47,41 @@ const menuitems = [
 <Container>
   <header class="my-5 flex h-44 w-full items-center justify-between">
     <a href="/">{SITE_NAME}</a>
-    <ul class="flex gap-4">
-      {
-        menuitems.map((item) => (
-          <>
-            {!item.children && (
-              <a
-                href={item.path}
-                class="group flex items-center justify-center">
-                <div class="h-1 w-1 cursor-pointer bg-black opacity-0 group-hover:opacity-100" />
-                <li class="">{item.title}</li>
-              </a>
-            )}
-            {item.children && (
-              <a href={item.path} class="flex items-center justify-center">
-                <div class="h-1 w-1 cursor-pointer bg-black" />
-                <li class="group relative list-none">
-                  {item.title}
-                  <ul class="absolute inset-x-3 scale-0 items-center text-sm group-hover:scale-100">
-                    {item.children.map((element) => (
-                      <a href={element.path}>
-                        <li>{element.title}</li>
-                        <div class="h-1 w-1 cursor-pointer bg-black opacity-0 hover:opacity-100" />
-                      </a>
-                    ))}
-                  </ul>
-                </li>
-              </a>
-            )}
-          </>
-        ))
-      }
-    </ul>
+    <div>
+      <ul id="menu_items" class="flex gap-4">
+        {
+          menuitems.map((item) => (
+            <>
+              {!item.children && (
+                <a
+                  href={item.path}
+                  class="group flex items-center justify-center">
+                  <div class="h-1 w-1 cursor-pointer bg-black opacity-0 group-hover:opacity-100" />
+                  <li class="">{item.title}</li>
+                </a>
+              )}
+              {item.children && (
+                <a
+                  href={item.path}
+                  class="flex items-center justify-center gap-0">
+                  <div class="h-1 w-1 cursor-pointer bg-black" />
+                  <li class="group relative list-none">
+                    {item.title}
+                    <ul class="absolute inset-x-3 scale-0 items-center text-sm group-hover:scale-100">
+                      {item.children.map((element) => (
+                        <a href={element.path}>
+                          <li>{element.title}</li>
+                          <div class="h-1 w-1 cursor-pointer bg-black opacity-0 hover:opacity-100" />
+                        </a>
+                      ))}
+                    </ul>
+                  </li>
+                </a>
+              )}
+            </>
+          ))
+        }
+      </ul>
+    </div>
   </header>
 </Container>
