@@ -81,6 +81,12 @@ importers:
         specifier: ^3.4.3
         version: 3.4.3
     devDependencies:
+      '@iconify-json/charm':
+        specifier: ^1.2.1
+        version: 1.2.1
+      '@iconify-json/ep':
+        specifier: ^1.2.1
+        version: 1.2.1
       '@tailwindcss/typography':
         specifier: ^0.5.13
         version: 0.5.13(tailwindcss@3.4.3)
@@ -619,6 +625,12 @@ packages:
 
   '@iconify-json/bx@1.1.10':
     resolution: {integrity: sha512-4JzMDYhs/hkU9mO8nNMNKZwHn706oQaD46URyUuD4fP/XAWGf01vg6wKITmQseEHsHDrtKAXjwcumfnTUDi3OQ==}
+
+  '@iconify-json/charm@1.2.1':
+    resolution: {integrity: sha512-BB9cI5YlAx0pfnukaM4JVIXGvGjIrq/tr9RHDElHXcoZku1ZLd3G2Dn7vqhYLkHl4x2ZX23gbKwX22aEs8xdfw==}
+
+  '@iconify-json/ep@1.2.1':
+    resolution: {integrity: sha512-m72jNpdlWI7Wd3TPs3RUd6nPiU1WWnWSvpOkM67HWNsyQrZDlTtLstLF9hAK8nhOxENi6ZO670A16mDvWJD9Cw==}
 
   '@iconify-json/simple-icons@1.1.102':
     resolution: {integrity: sha512-ErRQGs7tjGsq4sj5SSeYwBOQ766yd9LtWblWakyL+ugg1k48ImabkI3mptDN5o+XSUb9SC+b7YNSStlrrecqNQ==}
@@ -4516,6 +4528,14 @@ snapshots:
       graphql: 16.9.0
 
   '@iconify-json/bx@1.1.10':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/charm@1.2.1':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/ep@1.2.1':
     dependencies:
       '@iconify/types': 2.0.0
 
