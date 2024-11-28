@@ -1,8 +1,8 @@
 ---
-import EpClose from "~icons/ep/close";
+import EpClose from '~icons/ep/close'
 
-import Container from "@components/container.astro";
-import CharmMenuHamburger from "~icons/charm/menu-hamburger";
+import Container from '@components/container.astro'
+import CharmMenuHamburger from '~icons/charm/menu-hamburger'
 import { SITE_NAME } from '@lib/constants'
 
 const menuitems = [
@@ -14,32 +14,15 @@ const menuitems = [
   {
     title: 'Boende',
     path: '/boende',
-    children: [
-      { title: 'Allmänt', path: '/boende' },
-      { title: 'Nyheter', path: '/nyheter' },
-      // { title: "Dropdown Submenu", path: "#" },
-      // { title: "404 Page", path: "/404" },
-    ],
+    children: [{ title: 'Nyheter', path: '/nyheter' }],
   },
   {
     title: 'Mäklarinfo',
     path: '/maklarinfo',
-    // children: [
-    //   { title: "Action", path: "/" },
-    //   { title: "Another action", path: "#" },
-    //   { title: "Dropdown Submenu", path: "#" },
-    //   { title: "404 Page", path: "/404" },
-    // ],
   },
   {
     title: 'Logga in',
     path: '/keystatic',
-    // children: [
-    //   { title: "Action", path: "/" },
-    //   { title: "Another action", path: "#" },
-    //   { title: "Dropdown Submenu", path: "#" },
-    //   { title: "404 Page", path: "/404" },
-    // ],
   },
 ]
 ---
@@ -56,7 +39,7 @@ const menuitems = [
                 <a
                   href={item.path}
                   class="group flex items-center justify-center">
-                  <div class="h-1 w-1 cursor-pointer bg-black opacity-0 group-hover:opacity-100" />
+                  {/* <div class="h-1 w-1 cursor-pointer bg-black opacity-0 group-hover:opacity-100" /> */}
                   <li class="">{item.title}</li>
                 </a>
               )}
@@ -64,14 +47,14 @@ const menuitems = [
                 <a
                   href={item.path}
                   class="flex items-center justify-center gap-0">
-                  <div class="h-1 w-1 cursor-pointer bg-black" />
+                  {/* <div class="h-1 w-1 cursor-pointer bg-black" /> */}
                   <li class="group relative list-none">
                     {item.title}
                     <ul class="absolute inset-x-3 scale-0 items-center text-sm group-hover:scale-100">
                       {item.children.map((element) => (
                         <a href={element.path}>
                           <li>{element.title}</li>
-                          <div class="h-1 w-1 cursor-pointer bg-black opacity-0 hover:opacity-100" />
+                          {/* <div class="h-1 w-1 cursor-pointer bg-black opacity-0 hover:opacity-100" /> */}
                         </a>
                       ))}
                     </ul>
