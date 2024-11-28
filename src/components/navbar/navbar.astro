@@ -3,6 +3,7 @@ import Container from '@components/container.astro'
 import Link from '@components/ui/link.astro'
 import Dropdown from './dropdown.astro'
 import { Astronav, MenuItems, MenuIcon } from 'astro-navbar'
+import { SITE_NAME } from '@lib/constants'
 
 const menuitems = [
   {
@@ -49,7 +50,7 @@ const menuitems = [
     <Astronav>
       <div class="flex w-full items-center justify-between lg:w-auto">
         <a href="/" class="text-lg hover:animate-wiggle"
-          ><span class="font-bold text-slate-900">BRF BONNEVILLE</span>
+          ><span class="font-bold text-slate-900">{SITE_NAME}</span>
         </a>
         <div class="block lg:hidden">
           <MenuIcon class="h-4 w-4 text-gray-800" />
