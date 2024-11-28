@@ -1,28 +1,29 @@
 ---
-import Container from "@components/container.astro";
-import Link from "@components/ui/link.astro";
-import Dropdown from "./dropdown.astro";
-import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
+import Container from '@components/container.astro'
+import Link from '@components/ui/link.astro'
+import Dropdown from './dropdown.astro'
+import { Astronav, MenuItems, MenuIcon } from 'astro-navbar'
+import { SITE_NAME } from '@lib/constants'
 
 const menuitems = [
   {
-    title: "Föreningen",
-    path: "/omforeningen",
+    title: 'Föreningen',
+    path: '/omforeningen',
     // children: [{ title: "Dokument", path: "/dokument" }],
   },
   {
-    title: "Boende",
-    path: "/boende",
+    title: 'Boende',
+    path: '/boende',
     children: [
-      { title: "Allmänt", path: "/boende" },
-      { title: "Nyheter", path: "/nyheter" },
+      { title: 'Allmänt', path: '/boende' },
+      { title: 'Nyheter', path: '/nyheter' },
       // { title: "Dropdown Submenu", path: "#" },
       // { title: "404 Page", path: "/404" },
     ],
   },
   {
-    title: "Mäklarinfo",
-    path: "/maklarinfo",
+    title: 'Mäklarinfo',
+    path: '/maklarinfo',
     // children: [
     //   { title: "Action", path: "/" },
     //   { title: "Another action", path: "#" },
@@ -31,8 +32,8 @@ const menuitems = [
     // ],
   },
   {
-    title: "Admin vy",
-    path: "/keystatic",
+    title: 'Admin vy',
+    path: '/keystatic',
     // children: [
     //   { title: "Action", path: "/" },
     //   { title: "Another action", path: "#" },
@@ -40,7 +41,7 @@ const menuitems = [
     //   { title: "404 Page", path: "/404" },
     // ],
   },
-];
+]
 ---
 
 <Container>
@@ -49,7 +50,7 @@ const menuitems = [
     <Astronav>
       <div class="flex w-full items-center justify-between lg:w-auto">
         <a href="/" class="text-lg hover:animate-wiggle"
-          ><span class="font-bold text-slate-900">BRF BONNEVILLE</span>
+          ><span class="font-bold text-slate-900">{SITE_NAME}</span>
         </a>
         <div class="block lg:hidden">
           <MenuIcon class="h-4 w-4 text-gray-800" />

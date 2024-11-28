@@ -19,7 +19,7 @@ titleandtext:
         buttontitle: Maila styrelsen
         link: styrelsen@mail.com
 members:
-  - name: "Lisa "
+  - name: Lisa
     title: Ordförande
     image: /src/assets/images/people/members/0/image.jpg
     description: >-

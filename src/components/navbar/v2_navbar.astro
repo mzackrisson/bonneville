@@ -1,28 +1,29 @@
 ---
-import Container from "@components/container.astro";
-const props = Astro.props;
 import EpClose from "~icons/ep/close";
+
+import Container from "@components/container.astro";
 import CharmMenuHamburger from "~icons/charm/menu-hamburger";
+import { SITE_NAME } from '@lib/constants'
 
 const menuitems = [
   {
-    title: "Föreningen",
-    path: "/omforeningen",
-    children: [{ title: "Dokument", path: "/dokument" }],
+    title: 'Föreningen',
+    path: '/omforeningen',
+    children: [{ title: 'Dokument', path: '/dokument' }],
   },
   {
-    title: "Boende",
-    path: "/boende",
+    title: 'Boende',
+    path: '/boende',
     children: [
-      { title: "Allmänt", path: "/boende" },
-      { title: "Nyheter", path: "/nyheter" },
+      { title: 'Allmänt', path: '/boende' },
+      { title: 'Nyheter', path: '/nyheter' },
       // { title: "Dropdown Submenu", path: "#" },
       // { title: "404 Page", path: "/404" },
     ],
   },
   {
-    title: "Mäklarinfo",
-    path: "/maklarinfo",
+    title: 'Mäklarinfo',
+    path: '/maklarinfo',
     // children: [
     //   { title: "Action", path: "/" },
     //   { title: "Another action", path: "#" },
@@ -31,8 +32,8 @@ const menuitems = [
     // ],
   },
   {
-    title: "Admin vy",
-    path: "/keystatic",
+    title: 'Logga in',
+    path: '/keystatic',
     // children: [
     //   { title: "Action", path: "/" },
     //   { title: "Another action", path: "#" },
@@ -40,12 +41,12 @@ const menuitems = [
     //   { title: "404 Page", path: "/404" },
     // ],
   },
-];
+]
 ---
 
 <Container>
   <header class="my-5 flex h-44 w-full items-center justify-between">
-    <a href="/">BRF Bonneville</a>
+    <a href="/">{SITE_NAME}</a>
     <div>
       <ul id="menu_items" class="flex gap-4">
         {

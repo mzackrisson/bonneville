@@ -1,30 +1,24 @@
-// 1. Import utilities from `astro:content`
-import { z, defineCollection } from "astro:content";
+import { z, defineCollection } from 'astro:content'
 
-// 2. Define your collection(s)
-
-//collection for creating multiple generic pages
 const pagesCollection = defineCollection({
-  type: "content",
+  type: 'content',
   schema: z.object({
     title: z.string(),
   }),
-});
+})
 
-// news component
 const newsCollection = defineCollection({
-  type: "data",
+  type: 'data',
   schema: z.object({
     pubDate: z.string(),
     text: z.string(),
     title: z.string(),
     image: z.string().optional(),
   }),
-});
+})
 
-//specific pages
 const startPageCollection = defineCollection({
-  type: "data",
+  type: 'data',
   schema: z.object({
     heroimage: z.array(
       z.object({
@@ -40,10 +34,10 @@ const startPageCollection = defineCollection({
       }),
     ),
   }),
-});
+})
 
 const omForeningenCollection = defineCollection({
-  type: "content",
+  type: 'data',
   schema: z.object({
     titleandtext: z.array(
       z.object({
@@ -68,13 +62,15 @@ const omForeningenCollection = defineCollection({
       }),
     ),
   }),
-});
+})
 
-// 3. Export a single `collections` object to register your collection(s)
-//    This key should match your collection directory name in "src/content"
+/**
+ * Export a single `collections` object to register your collection(s)
+ * The keys should match the collection directory name in `src/content`
+ */
 export const collections = {
   startpage: startPageCollection,
   omforeningenpage: omForeningenCollection,
   pages: pagesCollection,
   news: newsCollection,
-};
+}
