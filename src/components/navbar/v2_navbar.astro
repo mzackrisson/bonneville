@@ -50,9 +50,9 @@ const menuitems = [
                   {/* <div class="h-1 w-1 cursor-pointer bg-black" /> */}
                   <li class="group relative list-none">
                     {item.title}
-                    <ul class="absolute inset-x-3 scale-0 items-center text-sm group-hover:scale-100">
+                    <ul class="absolute left-0 right-0 scale-0 items-center bg-yellow-100 text-center text-sm group-hover:scale-100">
                       {item.children.map((element) => (
-                        <a href={element.path}>
+                        <a href={element.path} class="block py-0.5">
                           <li>{element.title}</li>
                           {/* <div class="h-1 w-1 cursor-pointer bg-black opacity-0 hover:opacity-100" /> */}
                         </a>
